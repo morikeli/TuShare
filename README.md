@@ -1,4 +1,4 @@
-# WeMove
+# TuShare
 
 ## Mobile app screenshots
 | Homescreen (My Rides tab) | Homescreen (Discover tab) |
