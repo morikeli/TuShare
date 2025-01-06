@@ -41,10 +41,11 @@ Techinologies used:
 #### Installation guide for developers
 
 1. Git clone
+
 Clone this repository by opening your terminal/CMD and change the current working directory to Desktop - use `cd Desktop` command.
 ```bash
     $ cd Desktop
-    $ git clone https://github.com/morikeli/wemove.git
+    $ git clone https://github.com/morikeli/TuShare.git
 ```
 
 2. Open the cloned repository on your text editor and run this command:
