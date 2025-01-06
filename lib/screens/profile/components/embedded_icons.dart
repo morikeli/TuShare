@@ -11,7 +11,7 @@ class EmbeddedIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           IconButton(
             onPressed: () {},
