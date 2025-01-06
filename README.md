@@ -1,7 +1,17 @@
 # WeMove
 
 ## Mobile app screenshots
-
+| Homescreen (My Rides tab) | Homescreen (Discover tab) |
+| ------------------------- | ------------------------- |
+| ![homescreen](https://github.com/user-attachments/assets/631f11cb-055d-4301-837e-27e052ddb16e) | ![discovery-tab](https://github.com/user-attachments/assets/615cad5c-3c32-490a-af32-6ce80aa56672) |
+| | |
+| | |
+| Profile screen (light mode) | Profile screen (dark mode) |
+| ![profile-light-mode](https://github.com/user-attachments/assets/71b57c96-bb22-41bd-8d85-9ffb91f22ffa) | ![profile-dark-mode](https://github.com/user-attachments/assets/bc350384-668a-4562-b8bc-81051aa6a3fe) |
+| | |
+| | |
+| Profile screen on scroll (light mode) | Profile screen on scroll (dark mode) |
+| ![profile-on-scroll-light-mode](https://github.com/user-attachments/assets/f5976e54-abe7-4f3b-b7e2-849717d03fbf) | ![profile-on-scroll-dark-mode](https://github.com/user-attachments/assets/67fc9232-0184-4e41-ab0d-195121622285) |
 
 
 ## Overview
