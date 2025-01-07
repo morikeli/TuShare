@@ -39,6 +39,10 @@ dependencies:
   flutter_launcher_icons: ^0.14.2
   rename: ^3.0.2
   smooth_page_indicator: ^1.2.0+3
+  google_nav_bar: ^5.0.7
+  line_icons: ^2.0.3
+  awesome_snackbar_content: ^0.1.4
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
@@ -64,8 +68,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/app-launcher/
     - assets/icons/
     - assets/icons/preloaders/
+    - assets/images/dps/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -83,19 +89,19 @@ flutter:
     - family: Nunito
       fonts:
         - asset: assets/fonts/Nunito/static/Nunito-Regular.ttf
-        - asset: assets/fonts/Nunito/static/Nunito-Bold.ttf
-        - asset: assets/fonts/Nunito/static/Nunito-BoldItalic.ttf
-          style: italic
+        # - asset: assets/fonts/Nunito/static/Nunito-Bold.ttf
+        # - asset: assets/fonts/Nunito/static/Nunito-BoldItalic.ttf
+        #   style: italic
         
         - asset: assets/fonts/Nunito/static/Nunito-Light.ttf
-        - asset: assets/fonts/Nunito/static/Nunito-LightItalic.ttf
-          style: italic
-        - asset: assets/fonts/Nunito/static/Nunito-Medium.ttf
-        - asset: assets/fonts/Nunito/static/Nunito-MediumItalic.ttf
-          style: italic
+        # - asset: assets/fonts/Nunito/static/Nunito-LightItalic.ttf
+        #   style: italic
+        # - asset: assets/fonts/Nunito/static/Nunito-Medium.ttf
+        # - asset: assets/fonts/Nunito/static/Nunito-MediumItalic.ttf
+        #   style: italic
 
-        - asset: assets/fonts/Nunito/static/Nunito-Italic.ttf
-          style: italic
+        # - asset: assets/fonts/Nunito/static/Nunito-Italic.ttf
+        #   style: italic
         
   #   - family: Trajan Pro
   #     fonts:
