@@ -4,7 +4,6 @@ import 'package:ride_share/common/widgets/icon_badge.dart';
 import 'package:ride_share/screens/home/components/homescreen_cards.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides_card.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -64,7 +63,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(LineIcons.car),
+          Icon(LineIcons.alternateCar),
           Text('TuShare', style: Theme.of(context).textTheme.titleLarge),
         ],
       ),
