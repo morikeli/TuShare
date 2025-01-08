@@ -22,7 +22,7 @@ class HomeScreenCards extends StatelessWidget {
               children: [
                 cardHeader(context),
                 cardBodySection(context),
-                // Divider(color: Colors.black26),
+                Divider(color: Colors.black26),
                 cardFooter(context),
               ],
             ),
@@ -60,13 +60,13 @@ class HomeScreenCards extends StatelessWidget {
     return ListTile(
       title: Row(
         children: [
-          Icon(LineIcons.dotCircle, color: Colors.red),
+          Icon(LineIcons.dotCircle, color: Colors.green,),
           Text('Britam Towers, Upper Hill', style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
       subtitle: Row(
         children: [
-          Icon(LineIcons.mapPin, color: Colors.green),
+          Icon(LineIcons.mapMarker, color: Colors.red),
           Text('Donholm', style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
