@@ -33,7 +33,7 @@ class ScheduledRidePassengers extends StatelessWidget {
                   shape: BoxShape.rectangle
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.0),
-                child: Text('Driver', style: TextStyle(fontSize: 9.0)),
+                child: Text('Driver', style: TextStyle(color: kTextLightColor, fontSize: 9.0)),
               )
             ],
           ),

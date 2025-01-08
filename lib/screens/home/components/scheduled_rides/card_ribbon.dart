@@ -23,26 +23,26 @@ class ScheduledRideCardBanner extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Icon(LineIcons.car, size: 18.0),
+                Icon(LineIcons.car, color: kIconLightColor, size: 18.0),
                 SizedBox(width: 4.0),
-                Text('VolksWagen Golf'),
+                Text('VolksWagen Golf', style: TextStyle(color: kTextLightColor)),
                 VerticalDivider(),
-                Icon(LineIcons.userFriends, size: 18.0),
+                Icon(LineIcons.userFriends, color: kIconLightColor, size: 18.0),
                 SizedBox(width: 4.0),
-                Text('4 seats'),
+                Text('4 seats', style: TextStyle(color: kTextLightColor)),
               ],
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 4.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
-                  icon: Icon(LineIcons.horizontalEllipsis)),
+                onPressed: () {},
+                icon: Icon(LineIcons.horizontalEllipsis),
+              ),
             ],
           ),
         )
