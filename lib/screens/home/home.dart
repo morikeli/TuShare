@@ -48,8 +48,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           child: TabBarView(
             controller: _tabController,
             children: [
-              ScheduledRidesCard(),
-              HomeScreenCards(),
+              Scrollbar(child: ScheduledRidesCard()),
+              Scrollbar(child: HomeScreenCards()),
             ],
           ),
         ),
