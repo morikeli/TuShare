@@ -32,7 +32,7 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
           GButton(
             icon: LineIcons.car,
-            text: 'Ride requests',
+            text: 'Ride history',
             textColor: kTextLightColor,
           ),
           GButton(
