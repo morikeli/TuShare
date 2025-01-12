@@ -41,7 +41,7 @@ class ProfileScreenBody extends StatelessWidget {
         // 3. Username and rating section
         UsernameAndRatingWidget(),
         // 4. Container with "Chat" & "Call" buttons
-        ChatAndCallContainer(), 
+        ChatAndCallContainer(),
       ],
     );
   }
