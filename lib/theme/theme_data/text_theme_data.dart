@@ -9,7 +9,7 @@ class GoRideAppTextTheme {
   static TextTheme lightTextTheme = TextTheme(
     // headlines
     
-    headlineLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 20.0, fontFamily: 'Nunito', fontWeight: FontWeight.bold),
+    headlineLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 24.0, fontFamily: 'Nunito', fontWeight: FontWeight.bold),
     headlineMedium: const TextStyle().copyWith(color: kTextDarkColor, fontSize: 16.0, fontFamily: 'Nunito', fontWeight: FontWeight.w400),
     headlineSmall: const TextStyle().copyWith(color: kTextDarkColor, fontSize: 14.0, fontFamily: 'Nunito'),
 
@@ -44,7 +44,7 @@ class GoRideAppTextTheme {
   // Dark theme text
   static TextTheme darkTextTheme = TextTheme(
     // headlines
-    headlineLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 18.0, fontFamily: 'Nunito', fontWeight: FontWeight.normal),
+    headlineLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 24.0, fontFamily: 'Nunito', fontWeight: FontWeight.bold),
     headlineMedium: const TextStyle().copyWith(color: kTextDarkColor, fontSize: 16.0, fontFamily: 'Nunito', fontWeight: FontWeight.w400),
     headlineSmall: const TextStyle().copyWith(color: kTextLightColor, fontSize: 14.0, fontFamily: 'Nunito',),
 
