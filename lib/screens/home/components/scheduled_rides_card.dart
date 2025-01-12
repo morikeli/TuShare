@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides/card_ribbon.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides/journey_info.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides/passengers.dart';
-
+import 'package:ride_share/screens/slot/car_slot.dart';
 
 class ScheduledRidesCard extends StatelessWidget {
   const ScheduledRidesCard({
@@ -15,21 +16,28 @@ class ScheduledRidesCard extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 72.0),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return Card(
-          margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                ScheduledRideCardBanner(),
-                ScheduledRideJourneyInfo(),
-                Divider(color: Theme.of(context).dividerColor),
-                ScheduledRidePassengers(),
-              ],
+        return GestureDetector(
+          onTap: () => Get.to(
+            () => CarSlot(),
+            transition: Transition.rightToLeft,
+            duration: Duration(milliseconds: 1500),
+          ),
+          child: Card(
+            margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  ScheduledRideCardBanner(),
+                  ScheduledRideJourneyInfo(),
+                  Divider(color: Theme.of(context).dividerColor),
+                  ScheduledRidePassengers(),
+                ],
+              ),
             ),
           ),
         );
-      }
+      },
     );
   }
 }
