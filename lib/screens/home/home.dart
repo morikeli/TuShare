@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ride_share/common/widgets/icon_badge.dart';
+import 'package:ride_share/common/widgets/appbar.dart';
 import 'package:ride_share/screens/home/components/homescreen_cards.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides_card.dart';
 
@@ -29,7 +29,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(context),
+      appBar: sharedAppBar(context, 'TuShare', LineIcons.alternateCar),
       body: homeBody(context),
     );
   }
@@ -57,24 +57,4 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
   }
 
-  AppBar appBar(BuildContext context) {
-    return AppBar(
-      centerTitle: true,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(LineIcons.alternateCar),
-          Text('TuShare', style: Theme.of(context).textTheme.titleLarge),
-        ],
-      ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Stack(
-            children: [Icon(LineIcons.bell), IconBadge()],
-          ),
-        ),
-      ],
-    );
-  }
 }
