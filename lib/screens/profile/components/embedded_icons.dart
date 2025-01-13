@@ -14,9 +14,10 @@ class EmbeddedIcons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           IconButton(
+            tooltip: 'Edit profile',
             onPressed: () {},
             icon: Icon(
-              LineIcons.horizontalEllipsis,
+              LineIcons.userEdit,
               color: kIconLightColor,
             ),
           )
