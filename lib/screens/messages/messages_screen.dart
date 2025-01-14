@@ -23,6 +23,7 @@ class MessagesScreen extends StatelessWidget {
             );
           },
           child: ListView.builder(
+            padding: EdgeInsets.only(bottom: 72.0),
             itemCount: 15,
             itemBuilder: (context, index) {
               return ListTile(
