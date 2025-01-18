@@ -16,7 +16,10 @@ class GoRideAppTextTheme {
     // titles
     /*
       titleLarge - used in Tab() in TabBar()
-      titleMedium - used in HomeScreeCards() to display driver's name and used in Tab() in TabBar() to display tab name
+      titleMedium - used in: 
+        1. HomeScreeCards() to display driver's name
+        2. Tab() in TabBar() to display tab name
+        3. ChatScreen() to display the recipient's name
       titleSmall - used in GNav() in CustomBottomNavBar()
     */
     titleLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 20.0, fontFamily: 'Nunito', fontWeight: FontWeight.bold),
@@ -51,7 +54,10 @@ class GoRideAppTextTheme {
     // titles
     /*
       titleLarge - used in Tab() in TabBar()
-      titleMedium - used in HomeScreeCards() to display driver's name and used in Tab() in TabBar() to display tab name
+      titleMedium - used in: 
+        1. HomeScreeCards() to display driver's name
+        2. Tab() in TabBar() to display tab name
+        3. ChatScreen() to display the recipient's name
       titleSmall - used in GNav() in CustomBottomNavBar()
     */
     titleLarge: const TextStyle().copyWith(color: kTextLightColor, fontSize: 20.0, fontFamily: 'Nunito', fontWeight: FontWeight.bold),
