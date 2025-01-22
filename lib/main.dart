@@ -7,12 +7,12 @@ import 'package:ride_share/theme/theme.dart';
 
 
 void main() {
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const GoRideApp());
   
   // whenever your initialization is completed, remove the splash screen:
-  // FlutterNativeSplash.remove();
+  FlutterNativeSplash.remove();
 }
 
 class GoRideApp extends StatelessWidget {
