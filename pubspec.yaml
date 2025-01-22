@@ -44,6 +44,8 @@ dependencies:
   awesome_snackbar_content: ^0.1.4
   get: ^4.6.6
   image_picker: ^1.1.2
+  redacted: ^1.0.13
+  timelines_plus: ^1.0.4
 
 dev_dependencies:
   flutter_test:

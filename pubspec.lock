@@ -429,6 +429,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.11.1"
+  measure_size:
+    dependency: transitive
+    description:
+      name: measure_size
+      sha256: "5faef74474db7bbcd8c6f301d8a09abc69b8e999b85167825e532f1a55c38ae6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   meta:
     dependency: transitive
     description:
@@ -485,6 +493,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.1"
+  redacted:
+    dependency: "direct main"
+    description:
+      name: redacted
+      sha256: "56647696716c2aacaa9532ef88067b4d2d090f744f411a823bb41f57b814b23a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.13"
   rename:
     dependency: "direct main"
     description:
@@ -554,6 +570,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.3"
+  timelines_plus:
+    dependency: "direct main"
+    description:
+      name: timelines_plus
+      sha256: "42d5b78420dcb661e2c31b37d0dbaf48f58d4d12516c6ad2fc481a56a26d6074"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   typed_data:
     dependency: transitive
     description:
