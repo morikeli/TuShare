@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ride_share/theme/theme_data/fab_theme_data.dart';
 import 'package:ride_share/theme/theme_data/appbar_theme_data.dart';
-import 'package:ride_share/theme/theme_data/color_scheme.dart';
+import 'package:ride_share/theme/color_scheme.dart';
 import 'package:ride_share/theme/theme_data/input_decoration_theme_data.dart';
 import 'package:ride_share/theme/theme_data/scrollbar_theme_data.dart';
 import 'package:ride_share/theme/theme_data/tabbar_theme.dart';
