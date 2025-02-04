@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ride_share/screens/profile/components/chat_and_call_container.dart';
-import 'package:ride_share/screens/profile/components/embedded_icons.dart';
-import 'package:ride_share/screens/profile/components/username_and_rating.dart';
+import 'package:ride_share/screens/profile/components/profile_screen/chat_and_call_container.dart';
+import 'package:ride_share/screens/profile/components/profile_screen/embedded_icons.dart';
+import 'package:ride_share/screens/profile/components/profile_screen/username_and_rating.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
 
