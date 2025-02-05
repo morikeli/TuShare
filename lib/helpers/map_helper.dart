@@ -5,6 +5,8 @@ import 'package:universe/universe.dart';
 
 
 class MapHelper {
+
+  // show map in fullscreen
   static void showFullScreenMap(BuildContext context) {
     Get.to(
       () => FullScreenMapView(),
