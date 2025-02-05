@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ride_share/screens/slot/components/map_widget.dart';
 import 'package:ride_share/screens/slot/components/passengers_sitting_position.dart';
 import 'package:ride_share/screens/slot/components/passengers_tab.dart';
 
@@ -57,7 +58,7 @@ class _CarSlotState extends State<CarSlot>  with SingleTickerProviderStateMixin 
               children: [
                 PassengersTab(),
                 Center(child: Text('Coming soon')),
-                Center(child: Text('Coming soon')),
+                MapWidget(),  // display map showing the routes the car will go through
               ],
             ),
           ),
