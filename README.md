@@ -10,8 +10,16 @@
 | ![profile-light-mode](https://github.com/user-attachments/assets/71b57c96-bb22-41bd-8d85-9ffb91f22ffa) | ![profile-dark-mode](https://github.com/user-attachments/assets/bc350384-668a-4562-b8bc-81051aa6a3fe) |
 | | |
 | | |
-| Profile screen on scroll (light mode) | Profile screen on scroll (dark mode) |
-| ![profile-on-scroll-light-mode](https://github.com/user-attachments/assets/f5976e54-abe7-4f3b-b7e2-849717d03fbf) | ![profile-on-scroll-dark-mode](https://github.com/user-attachments/assets/67fc9232-0184-4e41-ab0d-195121622285) |
+| Car slots screen | Car slots screen on scroll |
+| ![car-slots](https://github.com/user-attachments/assets/c39d7210-f9e5-43b9-a250-78578a75cbfc) | ![car-slots-on-scroll](https://github.com/user-attachments/assets/1be63e6e-17b0-4a8c-9208-a80b7d9599b9) |
+| | |
+| | |
+| Car slots (Mini map) | Fullscreen map |
+| ![car-slots-route-screenshot](https://github.com/user-attachments/assets/6ef671ae-6fca-4292-8b2b-d63f6890df02) | ![fullscreen-map](https://github.com/user-attachments/assets/9815dd87-e8bf-4805-b6f5-9641901e233e) |
+| | |
+| | |
+| Fullscreen map marker popup |  |
+| ![fullscreen-map-marker-popup](https://github.com/user-attachments/assets/6db633c3-cd2d-4a49-8478-3e3d136a0561) | |
 
 
 ## Overview
