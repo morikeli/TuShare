@@ -46,6 +46,7 @@ class FullScreenMapView extends StatelessWidget {
               markers: U.MarkerLayer(
                 data: 'The pin shows your current location',
                 [
+                  // marker to display user's current location
                   U.Marker(
                     [latitude, longitude],
                     widget: MarkerIcon(
@@ -55,6 +56,7 @@ class FullScreenMapView extends StatelessWidget {
                   ),
                 ],
                 onTap: (latlng, data) {
+                  // when the user taps the marker, display snackbar with info in `data`
                   Get.showSnackbar(GetSnackBar(
                     backgroundColor: Colors.transparent,
                     duration: Duration(seconds: 7),
@@ -68,6 +70,7 @@ class FullScreenMapView extends StatelessWidget {
                 },
               ),
             ),
+            // button to exit fullscreen
             Positioned(
               top: 60,
               right: 16,

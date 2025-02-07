@@ -32,6 +32,7 @@ class MapWidget extends StatelessWidget {
             markers: U.MarkerLayer(
               data: 'The pin shows your current location',
               [
+                // marker to display user's current location
                 U.Marker(
                   [mapController.latitude.value, mapController.longitude.value],
                   widget: MarkerIcon(
@@ -41,6 +42,7 @@ class MapWidget extends StatelessWidget {
                 ),
               ],
               onTap: (latlng, data) {
+                  // when the user taps the marker, display snackbar with info in `data`
                 Get.showSnackbar(GetSnackBar(
                   backgroundColor: Colors.transparent,
                   duration: Duration(seconds: 7),
