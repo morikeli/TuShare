@@ -96,7 +96,7 @@ class ProfileScreenBody extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
-        SizedBox(height: 60.0), // add space after the last widget in the column
+        SizedBox(height: 92.0), // add space after the last widget in the column
       ],
     );
   }
