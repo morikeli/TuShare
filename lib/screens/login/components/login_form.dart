@@ -41,7 +41,6 @@ class LoginForm extends StatelessWidget {
 
                     To counter this, post-frame callback is used to display the Snackbar() after the entire widget tree is built.
                   */
-
                   // Use post-frame callback to show snackbar after the frame is built
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     Get.showSnackbar(
