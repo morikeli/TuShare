@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:ride_share/common/screens/homescreen.dart';
 import 'package:ride_share/routes.dart';
+import 'package:ride_share/screens/login/login.dart';
 import 'package:ride_share/theme/theme.dart';
 
 
@@ -25,7 +25,7 @@ class GoRideApp extends StatelessWidget {
       getPages: routes,
       theme: GoRideAppTheme.lightTheme,
       darkTheme: GoRideAppTheme.darkTheme,
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
