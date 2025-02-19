@@ -49,5 +49,10 @@
 		<true/>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Select an image file</string>
+		<key>NSCameraUsageDescription</key>
+		<string>Allow access to your gallery and camera to select photos</string>
+
 	</dict>
 </plist>
