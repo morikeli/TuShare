@@ -30,7 +30,7 @@ class AuthController {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final accessToken = data['access_token'];
-        final user = data['user']; // Assuming the user data comes with the token
+        final user = data['user'];
 
           return {
             'access_token': accessToken,
