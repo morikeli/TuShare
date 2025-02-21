@@ -10,21 +10,26 @@ import 'package:ride_share/utils/constants/colors.dart';
 
 
 class ProfileScreenBody extends StatelessWidget {
-  const ProfileScreenBody({
+  ProfileScreenBody({
     super.key,
   });
 
+  final ProfileController profileController = Get.put(ProfileController());
+  
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        // profile screen header
-        userProfileScreenHeader(context),
-        SizedBox(height: 24.0),
-        // Profile info.
-        userProfileInfo(context)
-      ],
-    );
+    return Obx(() => profileController.userInfo.isEmpty
+        ? Center(child: SpinKitFadingCircle(color: kPrimaryColor, size: 68.0))
+        : ListView(
+            children: [
+              // profile screen header
+              userProfileScreenHeader(context),
+              SizedBox(height: 24.0),
+              // Profile info.
+              userProfileInfo(context)
+            ],
+          ));
   }
 
   Widget userProfileScreenHeader(BuildContext context) {
