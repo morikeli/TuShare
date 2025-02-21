@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/controllers/profile_controller.dart';
 import 'package:ride_share/screens/profile/components/profile_screen/chat_and_call_container.dart';
 import 'package:ride_share/screens/profile/components/profile_screen/embedded_icons.dart';
 import 'package:ride_share/screens/profile/components/profile_screen/username_and_rating.dart';
