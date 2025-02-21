@@ -4,6 +4,7 @@ import 'package:ride_share/common/widgets/appbar.dart';
 import 'package:ride_share/screens/home/components/homescreen_cards.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides_card.dart';
 
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
