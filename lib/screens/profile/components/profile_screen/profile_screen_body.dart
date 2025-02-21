@@ -37,17 +37,24 @@ class ProfileScreenBody extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         // 1. User profile picture
-        Image.asset(
-          'assets/images/dps/6.jpg',
-          height: 280.0,
-          width: double.infinity,
-          fit: BoxFit.cover,
+        
+        Opacity(
+          opacity: .5,
+          child: Image.network(
+            profileController.userInfo['profile_picture']!,
+            height: 280.0,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
         ),
         DecoratedBox(decoration: BoxDecoration(color: Colors.black38)),
         // 2. Favorite and more options icons
         EmbeddedIcons(),
         // 3. Username and rating section
-        UsernameAndRatingWidget(),
+        UsernameAndRatingWidget(
+          firstName: profileController.userInfo['first_name']!,
+          lastName: profileController.userInfo['last_name']!,
+        ),
         // 4. Container with "Chat" & "Call" buttons
         ChatAndCallContainer(),
       ],
