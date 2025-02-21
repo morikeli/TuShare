@@ -6,7 +6,11 @@ import 'package:ride_share/utils/constants/colors.dart';
 class UsernameAndRatingWidget extends StatelessWidget {
   const UsernameAndRatingWidget({
     super.key,
+    required this.firstName,
+    required this.lastName,
   });
+
+  final String firstName, lastName;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class UsernameAndRatingWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Kelvin Anderson',
+              '$firstName $lastName',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             Row(
