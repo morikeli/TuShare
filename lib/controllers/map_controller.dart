@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 class MapController extends GetxController {
   var latitude = 0.0.obs;
   var longitude = 0.0.obs;
-  var isLoading = true.obs;
+  var isLoading = false.obs;
 
   @override
   void onInit() {
@@ -16,6 +16,7 @@ class MapController extends GetxController {
 
   // Method to fetch user's current location
   Future<void> fetchLocation() async {
+    isLoading(true);
     Position position = await Geolocator.getCurrentPosition();
     latitude.value = position.latitude;
     longitude.value = position.longitude;
@@ -37,7 +38,8 @@ class MapController extends GetxController {
         throw 'Location services disabled!';
         // return Future.error('Location services are disabled.');
       }
-
+      
+      isLoading(true);
       permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.whileInUse || permission == LocationPermission.always) {
@@ -45,13 +47,14 @@ class MapController extends GetxController {
       } else if (permission == LocationPermission.denied) {
         // Request permission only if it was previously denied (but not forever)
         permission = await Geolocator.requestPermission();
+        isLoading(true);
         if (permission == LocationPermission.denied) {
           // Permissions are denied, next time you could try
           // requesting permissions again (this is also where
           // Android's shouldShowRequestPermissionRationale
           // returned true. According to Android guidelines
           // your App should show an explanatory UI now.
-          isLoading.value = false;
+          isLoading(false);
           
           // set longitude & latitude to Nairobi's coordinates
           latitude.value = -1.286389;
@@ -63,7 +66,7 @@ class MapController extends GetxController {
         }
 
       } else if (permission == LocationPermission.deniedForever) {
-        isLoading.value = false;
+        isLoading(false);
         // Permissions are denied forever, handle appropriately.
         
         // set default location to Nairobi
@@ -86,7 +89,7 @@ class MapController extends GetxController {
       ));
       
     } finally {
-      isLoading.value = false;
+      isLoading(false);
     }
   }
 }
