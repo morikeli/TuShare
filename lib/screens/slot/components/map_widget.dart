@@ -1,5 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/controllers/map_controller.dart';
@@ -17,7 +18,7 @@ class MapWidget extends StatelessWidget {
     return Obx(() {
       // display a loading indicator when the map is loading
       if (mapController.isLoading.value) {
-        return Center(child: CircularProgressIndicator.adaptive());
+        return Center(child: SpinKitThreeBounce(color: kPrimaryColor, size: 68.0));
       }
       // return map if its loaded
       return Stack(
