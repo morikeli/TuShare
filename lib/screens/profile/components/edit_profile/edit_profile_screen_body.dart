@@ -35,7 +35,10 @@ class _EditProfileScreenBodyState extends State<EditProfileScreenBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 40.0),
       child: ListView(
-        children: [userProfilePicture(context), EditProfileForm()],
+        children: [
+          userProfilePicture(context),
+          EditProfileForm(),
+        ],
       ),
     );
   }
@@ -52,8 +55,8 @@ class _EditProfileScreenBodyState extends State<EditProfileScreenBody> {
               set it to the profile picture selected from the gallery.
             */
             backgroundImage: _selectedImageFile != null
-              ? FileImage(_selectedImageFile!)
-              : AssetImage('assets/images/dps/6.jpg'),
+                ? FileImage(_selectedImageFile!)
+                : AssetImage('assets/images/dps/6.jpg'),
             radius: MediaQuery.of(context).size.width * .16,
           ),
           Positioned(
