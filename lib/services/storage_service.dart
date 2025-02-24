@@ -15,7 +15,6 @@ class StorageService {
     String? firstName = prefs.getString('first_name');
     String? lastName = prefs.getString('last_name');
     String? email = prefs.getString('email');
-    String? mobileNumber = prefs.getString('mobile_number');
     String? profileImage = prefs.getString('profile_picture');
     String? dateJoined = prefs.getString('date_joined');
     
@@ -24,7 +23,6 @@ class StorageService {
     logger.info('First Name: $firstName');
     logger.info('Last Name: $lastName');
     logger.info('Email: $email');
-    logger.info('Mobile number: $mobileNumber');
     logger.info('Profile Image URL: $profileImage');
     logger.info('Date joined: $dateJoined');
   }
@@ -34,11 +32,10 @@ class StorageService {
   static Future<Map<String, String>> getUserInfo() async {
     final prefs = await SharedPreferences.getInstance();
     return {
-      'username': prefs.getString('username') ?? '',    // get username else, i.e. if it doesn't exist, set to an empty string
+      'username': prefs.getString('username') ?? '',
       'first_name': prefs.getString('first_name') ?? '',
       'last_name': prefs.getString('last_name') ?? '',
       'email': prefs.getString('email') ?? '',
-      'mobile_number': prefs.getString('mobile_number') ?? '',
       'profile_picture': prefs.getString('profile_picture') ?? '',
       'date_joined': prefs.getString('date_joined') ?? '',
     };
@@ -51,7 +48,6 @@ class StorageService {
     await prefs.setString('first_name', user['first_name']);
     await prefs.setString('last_name', user['last_name']);
     await prefs.setString('email', user['email']);
-    await prefs.setString('mobile_number', user['mobile_number']);
     await prefs.setString('profile_picture', user['profile_picture']);
     await prefs.setString('date_joined', user['date_joined']);
 
