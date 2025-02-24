@@ -11,45 +11,28 @@ class StorageService {
     final prefs = await SharedPreferences.getInstance();
 
     // Retrieve the values from shared preferences
-    String? username = prefs.getString('username');
-    String? firstName = prefs.getString('first_name');
-    String? lastName = prefs.getString('last_name');
-    String? email = prefs.getString('email');
-    String? profileImage = prefs.getString('profile_picture');
-    String? dateJoined = prefs.getString('date_joined');
+    String? accessToken = prefs.getString('access_token');
+    String? lastLogin = prefs.getString('last_login');
     
     // Show logs at the terminal
-    logger.info('Username: $username');
-    logger.info('First Name: $firstName');
-    logger.info('Last Name: $lastName');
-    logger.info('Email: $email');
-    logger.info('Profile Image URL: $profileImage');
-    logger.info('Date joined: $dateJoined');
+    logger.info('Access token: $accessToken');
+    logger.info('Last login: $lastLogin');
   }
 
 
-  // get user details from API response
+  // get access token
   static Future<Map<String, String>> getUserInfo() async {
     final prefs = await SharedPreferences.getInstance();
     return {
-      'username': prefs.getString('username') ?? '',
-      'first_name': prefs.getString('first_name') ?? '',
-      'last_name': prefs.getString('last_name') ?? '',
-      'email': prefs.getString('email') ?? '',
-      'profile_picture': prefs.getString('profile_picture') ?? '',
-      'date_joined': prefs.getString('date_joined') ?? '',
+      'access_token': prefs.getString('access_token') ?? '',
+      'last_login': prefs.getString('last_login') ?? ''
     };
   }
 
-  // save user info from response data
+  // save user access token from response data
   static Future<void> saveUserInfo(Map<String, dynamic> user) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('username', user['username']);
-    await prefs.setString('first_name', user['first_name']);
-    await prefs.setString('last_name', user['last_name']);
-    await prefs.setString('email', user['email']);
-    await prefs.setString('profile_picture', user['profile_picture']);
-    await prefs.setString('date_joined', user['date_joined']);
+    await prefs.setString('access_token', user['access_token']);
 
   }
 
