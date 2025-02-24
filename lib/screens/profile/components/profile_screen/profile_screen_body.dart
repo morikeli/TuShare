@@ -37,7 +37,6 @@ class ProfileScreenBody extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         // 1. User profile picture
-        
         Opacity(
           opacity: .5,
           child: Image.network(
