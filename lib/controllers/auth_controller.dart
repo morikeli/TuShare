@@ -61,12 +61,25 @@ class AuthController {
     request.fields['gender'] = gender;
     request.fields['password'] = password;
 
+  
     // Add image if selected
     if (profileImage != null) {
+      String extension = profileImage.path.split('.').last.toLowerCase();     // Get the image file extension
+      String mimeType;   // Determine the correct MIME type
+      
+      if (extension == 'jpg' || extension == 'jpeg') {
+        mimeType = 'jpeg';
+      } else if (extension == 'png') {
+        mimeType = 'png';
+      } else {
+        throw Exception('Unsupported file format');
+      }
+
+
       request.files.add(await http.MultipartFile.fromPath(
         'profile_image',
         profileImage.path,
-        contentType: MediaType('image', 'jpeg'),
+        contentType: MediaType('image', mimeType),
       ));
     }
 
