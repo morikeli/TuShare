@@ -22,7 +22,7 @@ class LoginController extends GetxController {
     // if auth is successful, redirect to homescreen, otherwise display an error message
     if (authData != null) {
       // Save user info in local storage
-      await StorageService.saveUserInfo(authData['user']);
+      await StorageService.saveUserInfo(authData);
       isLoading(false);   // set isLoading to false
       Get.offNamed('/home');    // redirect user to the homescreen
     
