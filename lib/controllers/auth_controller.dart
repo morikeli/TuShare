@@ -49,7 +49,7 @@ class AuthController {
 
 
   // method to create an account for a user
-  static Future<Map<String, dynamic>?> signup(String firstName, String lastName, String username, String email, String gender, String password, File? profileImage) async {
+  static Future<Map<String, dynamic>?> signup(String firstName, String lastName, String username, String email, String mobileNumber, String gender, String password, File? profileImage) async {
     await dotenv.load();    // load .env file
     final uri = Uri.parse(ApiConstants.signup);
     final request = http.MultipartRequest('POST', uri);
@@ -58,11 +58,11 @@ class AuthController {
     request.fields['first_name'] = firstName;
     request.fields['last_name'] = lastName;
     request.fields['username'] = username;
+    request.fields['mobile_number'] = mobileNumber;
     request.fields['email'] = email;
     request.fields['gender'] = gender;
     request.fields['password'] = password;
 
-  
     // Add image if selected
     if (profileImage != null) {
       String extension = profileImage.path.split('.').last.toLowerCase();     // Get the image file extension
