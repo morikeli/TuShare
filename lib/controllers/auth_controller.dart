@@ -37,6 +37,8 @@ class AuthController {
       } else {
         return null;
       }
+    } on TimeoutException catch(timeoutError) {
+      throw Exception('$timeoutError');
     } on http.ClientException catch(e) {
       throw Exception('$e');
     } catch (e) {
