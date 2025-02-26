@@ -76,7 +76,6 @@ class AuthController {
         throw Exception('Unsupported file format');
       }
 
-
       request.files.add(await http.MultipartFile.fromPath(
         'profile_image',
         profileImage.path,
