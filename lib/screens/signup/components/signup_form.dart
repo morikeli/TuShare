@@ -155,32 +155,55 @@ class SignupForm extends StatelessWidget {
   }
 
   Obx genderTextField() {
-    return Obx(() => DropdownButtonFormField<String>(
-          value: signupController.selectedGender.value,
-          decoration: InputDecoration(
-            labelText: 'Gender',
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(LineIcons.venusMars),
-            contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    return Obx(
+      () => DropdownButtonFormField<String>(
+        value: signupController.selectedGender.value,
+        decoration: InputDecoration(
+          labelText: 'Gender',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(LineIcons.venusMars),
+          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        ),
+        items: ['Male', 'Female'].map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          if (newValue != null) {
+            signupController.selectedGender.value = newValue;
+          }
+        },
+      ),
+    );
+  }
+
+  TextField mobileNumberTextField() {
+    return TextField(
+      controller: signupController.mobileNumberController,
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12.0),
           ),
-          items: ['Male', 'Female'].map((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-          onChanged: (String? newValue) {
-            if (newValue != null) {
-              signupController.selectedGender.value = newValue;
-              print('New value: $newValue');
-            }
-          },
-        ));
+        ),
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        labelText: "Mobile number",
+        hintText: "Enter your mobile number",
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 4.0),
+          child: Icon(LineIcons.phone),
+        ),
+      ),
+    );
   }
 
   TextField emailTextField() {
     return TextField(
       controller: signupController.emailController,
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
