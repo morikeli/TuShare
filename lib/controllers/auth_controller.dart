@@ -87,21 +87,36 @@ class AuthController {
 
     try {
       final response = await request.send().timeout(Duration(seconds: 15));
-      print('Response: $response');
+      final responseData = await response.stream.bytesToString();
+      
       if (response.statusCode == 201) {
-        final responseData = await response.stream.bytesToString();
         return json.decode(responseData);
+      
       } else {
-        // show log for debugging
-        logger.severe('[STATUS CODE]: HTTP ${response.statusCode} ${response.reasonPhrase}');
-        final responseBody = await response.stream.bytesToString();
-        logger.severe('Response body: $responseBody');
+        logger.severe('[STATUS CODE]: HTTP ${response.statusCode} ${response.reasonPhrase}');   // show log for debugging
 
-        return null;
+        // use try ... catch block to display response data
+        try {
+          // final responseBody = json.decode(responseData);
+          // print('Decoded Response: $responseBody'); 
+
+          // response JSON data, status code and status message, e.g. NOT_FOUND, CREATED or UNAUTHORIZED
+          throw Exception('Response: $responseData | Status code: ${response.statusCode}_${response.reasonPhrase}');
+          
+        } catch (err) {
+          throw Exception('Failed to parse error response: $err');    // if response couldn't be parsed
+        }
       }
-    } catch (e) {
-      logger.shout('[Signup Error]: $e');
+    } on TimeoutException catch(timeoutError) {
+      throw Exception('$timeoutError');
+    } on http.ClientException catch(e) {
+      throw Exception('$e');
+    } catch (error) {
+      logger.shout('[Signup Error]: $error');
+      Exception('[ERROR]: $error');
       return null;
+    } finally {
+      Get.offNamed('/signup');
     }
   }
 
