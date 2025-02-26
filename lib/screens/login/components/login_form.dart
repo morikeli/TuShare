@@ -1,7 +1,7 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/controllers/login_controller.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
