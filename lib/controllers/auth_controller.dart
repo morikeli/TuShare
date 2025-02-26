@@ -44,6 +44,8 @@ class AuthController {
     } catch (e) {
       logger.shout('[Auth Error]: $e');
       return null; 
+    } finally {
+      Get.offNamed('/login');
     }
   }
 
