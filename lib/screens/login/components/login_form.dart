@@ -77,7 +77,7 @@ class LoginForm extends StatelessWidget {
     );
   }
 
-  TextField usernameTextField() {
+  TextField usernameAndEmailTextField() {
     return TextField(
       controller: loginController.usernameController,
       decoration: InputDecoration(
