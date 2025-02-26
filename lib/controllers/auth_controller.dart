@@ -25,21 +25,19 @@ class AuthController {
           'username': username,
           'password': password,
         },
-      );
+      ).timeout(Duration(seconds: 15));
       
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final accessToken = data['access_token'];
-        final user = data['user'];
 
-          return {
-            'access_token': accessToken,
-            'user': user,
-          };
+        return {'access_token': accessToken};
 
       } else {
         return null;
       }
+    } on http.ClientException catch(e) {
+      throw Exception('$e');
     } catch (e) {
       logger.shout('[Auth Error]: $e');
       return null; 
