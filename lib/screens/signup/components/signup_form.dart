@@ -91,7 +91,6 @@ class SignupForm extends StatelessWidget {
     );
   }
 
-  
   SizedBox signupBtn() {
     return SizedBox(
       width: double.infinity,
