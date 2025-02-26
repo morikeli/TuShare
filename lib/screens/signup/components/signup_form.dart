@@ -112,7 +112,6 @@ class SignupForm extends StatelessWidget {
     );
   }
 
-
   TextField confirmPasswordTextField() {
     return TextField(
       controller: signupController.confirmPasswordController,
