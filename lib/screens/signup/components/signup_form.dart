@@ -37,6 +37,8 @@ class SignupForm extends StatelessWidget {
             SizedBox(height: 16.0),
             emailTextField(), // email address text field
             SizedBox(height: 16.0),
+            mobileNumberTextField(), // mobile number text field
+            SizedBox(height: 16.0),
             genderTextField(),
             SizedBox(height: 16.0),
             passwordTextField(), // password text field
