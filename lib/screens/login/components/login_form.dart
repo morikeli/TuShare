@@ -23,46 +23,12 @@ class LoginForm extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SizedBox(height: 12.0),
-            usernameTextField(),
+            usernameAndEmailTextField(),
             SizedBox(height: 16.0),
             passwordTextField(),
             SizedBox(height: 20),
             loginBtn(),
-            // Spacer(),
-            Obx(
-              () {
-                if (loginController.errorMessage.value.isNotEmpty) {
-                  /* 
-                    Unhandled Exception: visitChildElements() called during build. 
-                    
-                    The error mentioned above occurs when you're trying to perform actions involving child widgets
-                    (like showing a Snackbar) during the build process. This is not allowed because the widget tree
-                    is still being updated and children are not yet ready to be interacted with.
-
-                    To counter this, post-frame callback is used to display the Snackbar() after the entire widget tree is built.
-                  */
-                  // Use post-frame callback to show snackbar after the frame is built
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    Get.showSnackbar(
-                      GetSnackBar(
-                        backgroundColor: Colors.transparent,
-                        duration: Duration(seconds: 7),
-                        messageText: AwesomeSnackbarContent(
-                          title: 'Oops! Invalid credentials.',
-                          message: '${loginController.errorMessage}',
-                          messageTextStyle: TextStyle(fontSize: 14.0),
-                          contentType: ContentType.failure,
-                        ),
-                      ),
-                    );
-                  });
-                } else {
-                  Get.closeCurrentSnackbar();
-                }
-                
-                return SizedBox.shrink();
-              },
-            ),
+            CustomSnackbar(snackbarMessage: loginController.errorMessage),
           ],
         ),
       ),
