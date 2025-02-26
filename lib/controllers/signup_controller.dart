@@ -50,12 +50,13 @@ class SignupController extends GetxController {
     final firstName = firstNameController.text.trim();
     final lastName = lastNameController.text.trim();
     final username = usernameController.text.trim();
+    final mobileNumber = mobileNumberController.text.trim();
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
     final confirmPassword = confirmPasswordController.text.trim();
 
     // form validation
-    if (firstName.isEmpty || lastName.isEmpty || username.isEmpty || email.isEmpty || selectedGender.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+    if (firstName.isEmpty || lastName.isEmpty || username.isEmpty || email.isEmpty || mobileNumber.isEmpty || selectedGender.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       
       isLoading(false);
       errorMessage({
@@ -88,7 +89,7 @@ class SignupController extends GetxController {
     }
 
     // if form validation is valid, create a user account
-    final signupData = await AuthController.signup(firstName, lastName, username, email, selectedGender.value, password, selectedImage.value);
+    final signupData = await AuthController.signup(firstName, lastName, username, email, mobileNumber, selectedGender.value, password, selectedImage.value);
 
     logger.info('[SIGNUP DATA]: $signupData');
     if (signupData != null) {
