@@ -47,9 +47,11 @@ class EditProfileScreenBody extends StatelessWidget {
               set the current picture to the user's profile picture otherwise
               set it to the profile picture selected from the gallery.
             */
-            backgroundImage: _selectedImageFile != null
-                ? FileImage(_selectedImageFile!)
-                : AssetImage('assets/images/dps/6.jpg'),
+            backgroundImage: profileController.selectedImage.value != null
+                ? FileImage(profileController.selectedImage.value!)
+                : NetworkImage(
+                    '${ApiConstants.mediaURL}/${profileController.userProfile.value!.profilePicture}',
+                  ) as ImageProvider,
             radius: MediaQuery.of(context).size.width * .16,
           ),
           Positioned(
