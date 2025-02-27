@@ -124,8 +124,38 @@ class AuthController {
 
   // method to logout a signed in user
   Future<void> logout() async {
-    await StorageService.clearUserInfo();
-    Get.offNamed('/login');
-  }
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('access_token');    // get access token
+      
 
+      if (token == null) {
+        Get.offNamed('/login');
+        return;
+      }
+
+      // Make the logout request
+      final response = await http.post(
+        Uri.parse(ApiConstants.logout),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        // Logout successful, clear user info
+        await StorageService.clearUserInfo();
+        Get.offNamed('/login');
+      } else {
+        // Handle logout failure
+        final Map<String, dynamic> responseBody = json.decode(response.body);
+        final RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "${responseBody['detail']}"}.obs;
+        CustomSnackbar(snackbarMessage: errorMessage);
+      }
+    } catch (e) {
+      RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "$e"}.obs;
+      CustomSnackbar(snackbarMessage: errorMessage);
+    }
+  }
 }
