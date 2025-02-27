@@ -1,46 +1,39 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/common/widgets/custom_snackbar.dart';
+import 'package:ride_share/controllers/profile_controller.dart';
 import 'package:ride_share/screens/profile/components/edit_profile/edit_profile_form.dart';
+import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
-class EditProfileScreenBody extends StatefulWidget {
-  const EditProfileScreenBody({super.key});
-
-  @override
-  State<EditProfileScreenBody> createState() => _EditProfileScreenBodyState();
-}
-
-class _EditProfileScreenBodyState extends State<EditProfileScreenBody> {
-  File? _selectedImageFile;
-
-  Future pickImage() async {
-    // initialize picker object
-    final ImagePicker picker = ImagePicker();
-
-    // pick image from gallery
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-
-    // update image preview
-    if (image != null) {
-      setState(() {
-        _selectedImageFile = File(image.path);
-      });
-    }
-  }
+class EditProfileScreenBody extends StatelessWidget {
+  EditProfileScreenBody({super.key});
+  final ProfileController profileController = Get.put(ProfileController());
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 40.0),
-      child: ListView(
-        children: [
-          userProfilePicture(context),
-          EditProfileForm(),
-        ],
-      ),
-    );
+    return Obx(() {
+      if (profileController.isLoading.value) {
+        return Center(
+          child: SpinKitFadingCircle(color: kPrimaryColor, size: 68.0),
+        );
+      }
+
+      return Scrollbar(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 40.0),
+          child: ListView(
+            children: [
+              userProfilePicture(context),
+              EditProfileForm(),
+              CustomSnackbar(snackbarMessage: profileController.errorMessage),
+            ],
+          ),
+        ),
+      );
+    });
   }
 
   Widget userProfilePicture(BuildContext context) {
