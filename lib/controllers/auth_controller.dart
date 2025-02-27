@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:logging/logging.dart';
+import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/services/storage_service.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 final logger = Logger('AuthController');
