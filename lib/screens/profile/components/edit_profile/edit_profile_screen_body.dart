@@ -59,7 +59,7 @@ class EditProfileScreenBody extends StatelessWidget {
             right: 0,
             child: IconButton.filled(
               tooltip: 'Edit profile photo',
-              onPressed: pickImage,
+              onPressed: profileController.pickImage,
               icon: Icon(LineIcons.camera, color: kIconLightColor),
             ),
           ),
