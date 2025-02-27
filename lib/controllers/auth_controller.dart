@@ -88,7 +88,7 @@ class AuthController {
     }
 
     try {
-      final response = await request.send().timeout(Duration(seconds: 15));
+      final response = await request.send().timeout(Duration(seconds: 30));
       final responseData = await response.stream.bytesToString();
       
       if (response.statusCode == 201) {
