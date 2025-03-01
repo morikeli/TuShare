@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/controllers/auth_controller.dart';
+import 'package:ride_share/utils/constants/colors.dart';
 
 
 class EmbeddedIcons extends StatelessWidget {
@@ -49,8 +50,8 @@ class EmbeddedIcons extends StatelessWidget {
               PopupMenuItem(
                 value: 'logout',
                 child: ListTile(
-                  leading: const Icon(LineIcons.doorOpen, color: Colors.red),
-                  title: const Text('Logout'),
+                  leading: const Icon(LineIcons.doorOpen, color: kDangerColor),
+                  title: const Text('Logout', style: TextStyle(color: kDangerColor)),
                 ),
               ),
             ],
