@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const kAppBarBackgroundColor = Color(0xFF2196F3);
 const kPrimaryColor = Color(0xFF1565C0);
 const kSecondaryColor = Color(0xFF292929);
+const kDangerColor = Color(0xFFEB1607);
 const kScaffoldBgColor = Color(0xFFF1EEEE);
 const kScaffoldDarkBgColor = Color(0xFF000000);
 const kIconLightColor = Color(0xFFFFFFFF);
