@@ -6,6 +6,7 @@ import 'package:ride_share/common/widgets/icon_badge.dart';
 
 AppBar sharedAppBar(BuildContext context, String title, IconData? titleIcon) {
   return AppBar(
+    automaticallyImplyLeading: false,   // hides back button when homescreen is loading
     centerTitle: true,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
