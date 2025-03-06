@@ -46,29 +46,29 @@ class LoginScreen extends StatelessWidget {
 
   Center loadingIndicator() {
     return Center(
-            child: SpinKitFadingCircle(
-              color: kPrimaryColor,
-              size: 68.0,
-            ),
-          );
+      child: SpinKitFadingCircle(
+        color: kPrimaryColor,
+        size: 68.0,
+      ),
+    );
   }
 
   Text signupLink() {
     return Text.rich(
-                textAlign: TextAlign.center,
-                TextSpan(
-                  text: "Don't have an account? Click here to ",
-                  style:
-                      TextStyle(color: kTextSecondaryColor, fontSize: 14.0),
-                  children: [
-                    TextSpan(
-                      text: 'signup',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => Get.toNamed('/signup'),
-                      style: TextStyle(color: kPrimaryColor, fontSize: 14.0),
-                    ),
-                  ],
-                ),
-              );
+      textAlign: TextAlign.center,
+      TextSpan(
+        text: "Don't have an account? Click here to ",
+        style:
+            TextStyle(color: kTextSecondaryColor, fontSize: 14.0),
+        children: [
+          TextSpan(
+            text: 'signup',
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => Get.toNamed('/signup'),
+            style: TextStyle(color: kPrimaryColor, fontSize: 14.0),
+          ),
+        ],
+      ),
+    );
   }
 }
