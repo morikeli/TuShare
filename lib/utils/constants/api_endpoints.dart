@@ -10,5 +10,6 @@ class ApiConstants {
   static String getRides = '$baseURL/api/v1/rides';
   static String bookedRides = '$baseURL/api/v1/rides/booked';
   static String shareRide = '$baseURL/api/v1/rides/new-ride';
+  static String bookRide = '$baseURL/api/v1/';
   static String mediaURL = baseURL;
 }
