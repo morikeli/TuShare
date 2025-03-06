@@ -7,5 +7,8 @@ class ApiConstants {
   static String logout = '$baseURL/api/v1/auth/logout';
   static String editUserProfile = '$baseURL/api/v1/users/profile/edit';
   static String userProfile = '$baseURL/api/v1/users/profile';
+  static String getRides = '$baseURL/api/v1/rides';
+  static String bookedRides = '$baseURL/api/v1/rides/booked';
+  static String shareRide = '$baseURL/api/v1/rides/new-ride';
   static String mediaURL = baseURL;
 }
