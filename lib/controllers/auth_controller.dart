@@ -14,11 +14,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final logger = Logger('AuthController');
 
-class AuthController {
+class AuthController {  
   // method to login users
   static Future<Map<String, dynamic>?> login(String username, String password) async {
     await dotenv.load(); // Load .env file
     final url = Uri.parse(ApiConstants.login);
+    var isLoading = false.obs;
 
     try {
       final response = await http.post(
@@ -28,7 +29,7 @@ class AuthController {
           'username': username,
           'password': password,
         },
-      ).timeout(Duration(seconds: 15));
+      ).timeout(Duration(minutes: 3));
       
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
@@ -40,6 +41,7 @@ class AuthController {
         return null;
       }
     } on TimeoutException catch(timeoutError) {
+      isLoading(false);
       throw Exception('$timeoutError');
     } on http.ClientException catch(e) {
       throw Exception('$e');
@@ -57,6 +59,7 @@ class AuthController {
     await dotenv.load();    // load .env file
     final uri = Uri.parse(ApiConstants.signup);
     final request = http.MultipartRequest('POST', uri);
+    var isLoading = false.obs;
 
     // Send form data in request body
     request.fields['first_name'] = firstName;
@@ -88,7 +91,7 @@ class AuthController {
     }
 
     try {
-      final response = await request.send().timeout(Duration(seconds: 30));
+      final response = await request.send().timeout(Duration(minutes: 3));
       final responseData = await response.stream.bytesToString();
       
       if (response.statusCode == 201) {
@@ -110,6 +113,7 @@ class AuthController {
         }
       }
     } on TimeoutException catch(timeoutError) {
+      isLoading(false);
       throw Exception('$timeoutError');
     } on http.ClientException catch(e) {
       throw Exception('$e');
