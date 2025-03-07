@@ -40,55 +40,110 @@ class HomeScreenCards extends StatelessWidget {
         children: [
           Column(
             children: [
-              Text('6 min', style: Theme.of(context).textTheme.labelLarge),
-              Text('PICKUP', style: Theme.of(context).textTheme.labelSmall),
+              Text(
+                formattedTime,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Text(
+                'PICKUP TIME',
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
             ],
           ),
           Column(
             children: [
-              Text('\$ 12', style: Theme.of(context).textTheme.labelLarge),
-              Text('PER KM', style: Theme.of(context).textTheme.labelSmall),
+              Text('\$ $price', style: Theme.of(context).textTheme.labelLarge),
+              Text('PER SEAT', style: Theme.of(context).textTheme.labelSmall),
             ],
           ),
-          IconButton(onPressed: () {}, icon: Icon(LineIcons.comment, color: kIconSecondaryColor,))
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              LineIcons.comment,
+              color: kIconSecondaryColor,
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget cardBodySection(BuildContext context) {
+  Widget cardBodySection(
+    BuildContext context,
+    String destination,
+    String pickupPoint,
+    int availableSeats,
+  ) {
     return ListTile(
       title: Row(
         children: [
           Icon(LineIcons.dotCircle, color: Colors.red),
-          Text('Britam Towers, Upper Hill', style: Theme.of(context).textTheme.bodyMedium),
+          Expanded(
+            child: Text.rich(
+              // textAlign: TextAlign.center,
+              TextSpan(
+                text: pickupPoint,
+                style: Theme.of(context).textTheme.bodyMedium,
+                children: [
+                  TextSpan(
+                    text: '  (pickup point)',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       subtitle: Row(
         children: [
           Icon(LineIcons.mapPin, color: Colors.green),
-          Text('Donholm', style: Theme.of(context).textTheme.bodyMedium),
+          Expanded(
+            child: Text.rich(
+              // textAlign: TextAlign.center,
+              TextSpan(
+                text: destination,
+                style: Theme.of(context).textTheme.bodyMedium,
+                children: [
+                  TextSpan(
+                    text: '  (destination)',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       trailing: Column(
         children: [
-          Text('2 seats', style: Theme.of(context).textTheme.bodySmall),
+          Text(
+            '$availableSeats seat(s)',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           Text('available', style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     );
   }
 
-  Widget cardHeader(BuildContext context) {
+  Widget cardHeader(
+    BuildContext context,
+    String driversName,
+    String driverProfilePic,
+    String vehicleModel,
+    String vehiclePlate,
+  ) {
+    final mediaUrl = ApiConstants.mediaURL;
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: AssetImage('assets/images/1.jpg'),
+        backgroundImage: NetworkImage('$mediaUrl/$driverProfilePic'),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Sarah Johnson',
+            driversName,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           Container(
@@ -99,7 +154,11 @@ class HomeScreenCards extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(kPrimaryColor),
                 padding: WidgetStateProperty.all(const EdgeInsets.all(2.0)),
-                shape: WidgetStateProperty.all(BeveledRectangleBorder(borderRadius: BorderRadius.circular(2.0)))
+                shape: WidgetStateProperty.all(
+                  BeveledRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.0),
+                  ),
+                ),
               ),
               child: Text(
                 'Request',
