@@ -109,8 +109,16 @@ class HomeScreenCards extends StatelessWidget {
           ),
         ],
       ),
-      subtitle: Text('Volkswagen Golf', style: TextStyle(color: kTextSecondaryColor)),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(vehicleModel, style: TextStyle(color: kTextSecondaryColor)),
+          Text(
+            'Plate no. $vehiclePlate',
+            style: TextStyle(color: kTextSecondaryColor),
+          ),
+        ],
+      ),
     );
   }
 }
-
