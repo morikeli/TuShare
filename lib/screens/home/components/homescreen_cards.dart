@@ -1,38 +1,118 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/controllers/ride_controller.dart';
+import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
-
 class HomeScreenCards extends StatelessWidget {
-  const HomeScreenCards({
+  HomeScreenCards({
     super.key,
   });
+  final RideController rideController = Get.put(RideController());    // Inject controller
+  final TextEditingController searchController = TextEditingController();     // Controller for search input
 
   @override
   Widget build(BuildContext context) {
+    return RefreshIndicator.adaptive(
+      onRefresh: () async {
+        await rideController.fetchAvailableRides(searchController.text);
+      },
+      child: Column(
+        children: [
+          searchForAvailableRidesTextField(), // text field to search for available rides
+          searchResults(),
+        ],
+      ),
+    );
+  }
+
+  Widget searchResults() {
+    return Expanded(
+      child: Obx(() {
+        if (rideController.isLoading.value) {
+          return Center(
+            child: SpinKitFadingCircle(color: kPrimaryColor, size: 68.0),
+          ); // if screen is loading, show indicator
+        }
+
+        if (rideController.availableRides.isEmpty) {
+          return Center(child: Text('No data available'));
+        }
+
+        return availableRidesSearchResults();
+      }),
+    );
+  }
+
+  Widget availableRidesSearchResults() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ListView.builder(
         padding: EdgeInsets.only(bottom: 72.0),
-          itemCount: 10, 
-          itemBuilder: (context, index) => Card(
+        itemCount: rideController.availableRides.length,
+        itemBuilder: (context, index) {
+          final availableRide = rideController.availableRides[index];
+          return Card(
             // shape: BeveledRectangleBorder(borderRadius: BorderRadius.zero),
             color: Theme.of(context).cardColor,
             child: Column(
               children: [
-                cardHeader(context),
-                cardBodySection(context),
+                cardHeader(
+                  context,
+                  availableRide.driverName,
+                  availableRide.driverProfilePic,
+                  availableRide.vehicleModel,
+                  availableRide.vehiclePlate,
+                ),
+                cardBodySection(
+                  context,
+                  availableRide.destination,
+                  availableRide.departureLocation,
+                  availableRide.availableSeats,
+                ),
                 // Divider(color: Colors.black26),
-                cardFooter(context),
+                cardFooter(
+                  context,
+                  availableRide.departureTime,
+                  availableRide.pricePerSeat,
+                ),
               ],
             ),
-          ),
-        ),
-      );
+          );
+        },
+      ),
+    );
   }
 
+  Widget searchForAvailableRidesTextField() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        controller: searchController,
+        decoration: InputDecoration(
+          hintText: "Enter destination...",
+          prefixIcon: Icon(LineIcons.search),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+        onSubmitted: (value) {
+          if (value.isNotEmpty) {
+            rideController.fetchAvailableRides(value);
+          }
+        },
+      ),
+    );
+  }
 
-  Widget cardFooter(BuildContext context) {
+  Widget cardFooter(BuildContext context, String departureTime, int price) {
+    DateTime dateTime = DateTime.parse(departureTime);
+    String formattedTime =
+        DateFormat.jm().format(dateTime); // format the time using intl package
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 4.0),
       child: Row(
