@@ -28,9 +28,8 @@ This is a **carpooling (ride-sharing) mobile application** designed to provide a
 ### **Key Features**
 - **Ride booking** – Passengers can search for and book available rides.  
 - **Ride posting** – Drivers can list their rides, including route, time, and seat availability.  
-- **Real-time location tracking** – Integrated with Google Maps for navigation.  
+- **Real-time location tracking** – Integrated with OpenStreetMap for navigation.  
 - **Secure authentication** – User authentication and profile management.  
-- **Role-based access** – Users can register as either **passengers** or **drivers**.  
 - **Dynamic seat availability** – Tracks remaining seats per ride.  
 
 ### **Technologies Used**
