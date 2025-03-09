@@ -34,8 +34,8 @@ class HomeScreenCards extends StatelessWidget {
       child: Obx(() {
         if (rideController.isLoading.value) {
           return Center(
-            child: SpinKitFadingCircle(color: kPrimaryColor, size: 68.0),
-          ); // if screen is loading, show indicator
+            child: SpinKitFadingCircle(color: kPrimaryColor, size: 68.0),   // if screen is loading, show indicator
+          );
         }
 
         if (rideController.availableRides.isEmpty) {
