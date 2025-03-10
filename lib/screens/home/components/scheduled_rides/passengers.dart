@@ -10,7 +10,6 @@ class ScheduledRidePassengers extends StatelessWidget {
     required this.driverName,
     required this.driverProfilePic,
     required this.driverOrigin,
-    required this.totalPassengers,
     required this.passengers,
   });
 
@@ -18,7 +17,6 @@ class ScheduledRidePassengers extends StatelessWidget {
       driverProfilePic,
       driverOrigin,
       price;
-  final int totalPassengers;
   final List passengers;
 
   @override
