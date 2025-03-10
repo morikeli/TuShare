@@ -31,15 +31,10 @@ class Ride {
       destination: json['destination'],
       departureTime: json['departure_time'],
       pricePerSeat: json['price_per_seat'].toInt(),
-      // passengers: (json['passengers'] as List)
-      //     .map((p) => Passenger.fromJson(p))
-      //     .toList(),
+      passengers: (json['passengers'] as List)
+          .map((p) => Passenger.fromJson(p))
+          .toList(),
     );
-  }
-
-  static List<Ride> fromJsonList(String jsonString) {
-    final List<dynamic> data = jsonDecode(jsonString);
-    return data.map((item) => Ride.fromJson(item)).toList();
   }
 }
 
