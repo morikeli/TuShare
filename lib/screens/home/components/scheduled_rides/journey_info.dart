@@ -24,15 +24,45 @@ class ScheduledRideJourneyInfo extends StatelessWidget {
               Row(
                 children: [
                   Icon(LineIcons.dotCircle, color: Colors.red),
-                  Text('Upper hill, Nairobi',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .44,
+                    child: Text.rich(
+                      maxLines: 2,
+                      softWrap: true,
+                      TextSpan(
+                        text: pickupPoint,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        children: [
+                          TextSpan(
+                            text: '  (pickup point)',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Row(
                 children: [
                   Icon(LineIcons.mapPin, color: Colors.green),
-                  Text('Donholm',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .4,
+                    child: Text.rich(
+                      maxLines: 2,
+                      softWrap: true,
+                      TextSpan(
+                        text: destination,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        children: [
+                          TextSpan(
+                            text: '  (destination)',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
