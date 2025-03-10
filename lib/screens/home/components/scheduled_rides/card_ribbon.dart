@@ -5,7 +5,10 @@ import 'package:ride_share/utils/constants/colors.dart';
 class ScheduledRideCardBanner extends StatelessWidget {
   const ScheduledRideCardBanner({
     super.key,
+    required this.vehicleModel,
+    required this.availableSeats,
   });
+  final String vehicleModel, availableSeats;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +28,11 @@ class ScheduledRideCardBanner extends StatelessWidget {
               children: [
                 Icon(LineIcons.car, color: kIconLightColor, size: 18.0),
                 SizedBox(width: 4.0),
-                Text('VolksWagen Golf', style: TextStyle(color: kTextLightColor)),
+                Text(vehicleModel, style: TextStyle(color: kTextLightColor)),
                 VerticalDivider(),
                 Icon(LineIcons.userFriends, color: kIconLightColor, size: 18.0),
                 SizedBox(width: 4.0),
-                Text('4 seats', style: TextStyle(color: kTextLightColor)),
+                Text('$availableSeats seat(s)', style: TextStyle(color: kTextLightColor)),
               ],
             ),
           ),

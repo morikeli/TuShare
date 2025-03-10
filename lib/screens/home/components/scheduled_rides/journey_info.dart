@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
-
 class ScheduledRideJourneyInfo extends StatelessWidget {
   const ScheduledRideJourneyInfo({
     super.key,
+    required this.pickupPoint,
+    required this.destination,
+    required this.availableSeats,
   });
+  final String pickupPoint, destination, availableSeats;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,7 @@ class ScheduledRideJourneyInfo extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text('2 seats', softWrap: true),
+                  Text('$availableSeats seat(s)', softWrap: true),
                   Text('available', softWrap: true),
                 ],
               ),
@@ -68,4 +71,3 @@ class ScheduledRideJourneyInfo extends StatelessWidget {
     );
   }
 }
-
