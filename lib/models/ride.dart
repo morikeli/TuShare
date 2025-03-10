@@ -15,7 +15,7 @@ class Ride {
     required this.destination,
     required this.departureTime,
     required this.pricePerSeat,
-    // required this.passengers,
+    required this.passengers,
   });
 
   factory Ride.fromJson(Map<String, dynamic> json) {
