@@ -35,6 +35,9 @@ class RideController extends GetxController {
     try {
       var rides = await _rideService.getUserBookedRides();
       bookedRides.assignAll(rides);
+      update();   // notify UI to update
+    } catch (e) {
+      throw Exception("Error fetching booked rides: $e");
     } finally {
       isLoading(false);
     }
