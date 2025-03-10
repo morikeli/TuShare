@@ -12,6 +12,12 @@ class RideController extends GetxController {
 
   final RideService _rideService = RideService();
 
+  @override
+  void onInit() {
+    fetchBookedRides();
+    super.onInit();
+  }
+
   // Fetches available rides for a given destination
   Future<void> fetchAvailableRides(String destination) async {
     isLoading(true);    // Show loading indicator
