@@ -1,17 +1,11 @@
 import 'package:get/get.dart';
+import 'package:ride_share/services/storage_service.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../models/ride.dart';
 
 
 class RideService extends GetConnect  {
   final String apiUrl = ApiConstants.baseURL;
-  Future getAccessToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? token = prefs.getString('access_token');    // get access token
-
-    return token;
-  }
 
   @override
   void onInit() {
