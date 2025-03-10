@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:ride_share/common/screens/homescreen.dart';
@@ -6,8 +7,9 @@ import 'package:ride_share/routes.dart';
 import 'package:ride_share/theme/theme.dart';
 
 
-void main() {
+void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");    // Load .env before running the app
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const GoRideApp());
   
