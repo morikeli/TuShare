@@ -99,6 +99,12 @@ class HomeScreenCards extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0),
           ),
         ),
+        onChanged: (value) {
+          // updated search results as the user queries available rides in the typed location
+          if (value.isNotEmpty) {
+            rideController.fetchAvailableRides(value);
+          }
+        },
         onSubmitted: (value) {
           if (value.isNotEmpty) {
             rideController.fetchAvailableRides(value);
