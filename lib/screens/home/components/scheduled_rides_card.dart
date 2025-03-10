@@ -67,31 +67,31 @@ class ScheduledRidesCard extends StatelessWidget {
 
   Card cards(Ride bookedRide, BuildContext context) {
     return Card(
-          margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                ScheduledRideCardBanner(
-                  vehicleModel: bookedRide.vehicleModel,
-                  availableSeats: bookedRide.availableSeats.toString(),
-                ),
-                ScheduledRideJourneyInfo(
-                  pickupPoint: bookedRide.departureLocation,
-                  destination: bookedRide.destination,
-                  availableSeats: bookedRide.availableSeats.toString(),
-                ),
-                Divider(color: Theme.of(context).dividerColor),
-                ScheduledRidePassengers(
-                  driverName: bookedRide.driverName,
-                  driverProfilePic: bookedRide.driverProfilePic,
-                  driverOrigin: bookedRide.departureLocation,
-                  passengers: bookedRide.passengers,
-                  price: bookedRide.pricePerSeat.toString(),
-                ),
-              ],
+      margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            ScheduledRideCardBanner(
+              vehicleModel: bookedRide.vehicleModel,
+              availableSeats: bookedRide.availableSeats.toString(),
             ),
-          ),
-        );
+            ScheduledRideJourneyInfo(
+              pickupPoint: bookedRide.departureLocation,
+              destination: bookedRide.destination,
+              availableSeats: bookedRide.availableSeats.toString(),
+            ),
+            Divider(color: Theme.of(context).dividerColor),
+            ScheduledRidePassengers(
+              driverName: bookedRide.driverName,
+              driverProfilePic: bookedRide.driverProfilePic,
+              driverOrigin: bookedRide.departureLocation,
+              passengers: bookedRide.passengers,
+              price: bookedRide.pricePerSeat.toString(),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
