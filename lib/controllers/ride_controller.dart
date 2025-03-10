@@ -14,7 +14,7 @@ class RideController extends GetxController {
 
   @override
   void onInit() {
-    fetchBookedRides();
+    fetchBookedRides();     // automatically  fetch current user's booked rides
     super.onInit();
   }
 
