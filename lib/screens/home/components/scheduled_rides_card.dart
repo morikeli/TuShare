@@ -28,10 +28,23 @@ class ScheduledRidesCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  ScheduledRideCardBanner(),
-                  ScheduledRideJourneyInfo(),
+                  ScheduledRideCardBanner(
+                    vehicleModel: bookedRide.vehicleModel,
+                    availableSeats: bookedRide.availableSeats.toString(),
+                  ),
+                  ScheduledRideJourneyInfo(
+                    pickupPoint: bookedRide.departureLocation,
+                    destination: bookedRide.destination,
+                    availableSeats: bookedRide.availableSeats.toString(),
+                  ),
                   Divider(color: Theme.of(context).dividerColor),
-                  ScheduledRidePassengers(),
+                  ScheduledRidePassengers(
+                    driverName: bookedRide.driverName,
+                    driverProfilePic: bookedRide.driverProfilePic,
+                    driverOrigin: bookedRide.departureLocation,
+                    passengers: bookedRide.passengers,
+                    price: bookedRide.pricePerSeat.toString(),
+                  ),
                 ],
               ),
             ),
