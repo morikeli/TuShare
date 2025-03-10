@@ -1,10 +1,7 @@
-import 'dart:convert';
-
-
 class Ride {
   final String id, driverName, driverProfilePic, vehicleType, vehicleModel, vehiclePlate, departureLocation, destination, departureTime;
   final int availableSeats, pricePerSeat;
-  // final List<Passenger> passengers;
+  final List<Passenger> passengers;
 
   Ride({
     required this.id,
