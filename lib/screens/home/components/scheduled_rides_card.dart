@@ -14,7 +14,7 @@ class ScheduledRidesCard extends StatelessWidget {
     super.key,
   });
 
-  final RideController rideController = Get.put(RideController()); // Inject controller
+  final RideController rideController = Get.put(RideController());    // Inject controller
 
   @override
   Widget build(BuildContext context) {
