@@ -52,8 +52,8 @@ class Passenger {
   factory Passenger.fromJson(Map<String, dynamic> json) {
     return Passenger(
       name: json['name'],
-      profilePic: json['profile_pic'],
-      pickupPoint: json['origin'],    // pickup point
+      profilePic: json['profile_image'],
+      pickupPoint: json['departure_location'],    // pickup point
     );
   }
 }
