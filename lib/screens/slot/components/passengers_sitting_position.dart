@@ -36,38 +36,16 @@ class VehicleImageAndPassengersSittingPositions extends StatelessWidget {
                   ),
                 ),
               ),
+              // driver's seat position - according to the image
               Positioned(
                 left: 140,
                 bottom: 80,
                 child: CircleAvatar(
-                  radius: 20.0,
-                  backgroundImage: AssetImage('assets/images/dps/2.jpg'),
+                  backgroundImage: NetworkImage( "${ApiConstants.mediaURL}/$driverProfilePic"),
                 ),
               ),
-              Positioned(
-                left: 140,
-                top: 68,
-                child: CircleAvatar(
-                  radius: 20.0,
-                  backgroundImage: AssetImage('assets/images/dps/18.jpg'),
-                ),
-              ),
-              Positioned(
-                right: 104,
-                top: 68,
-                child: CircleAvatar(
-                  radius: 20.0,
-                  backgroundImage: AssetImage('assets/images/dps/5.jpg'),
-                ),
-              ),
-              Positioned(
-                right: 104,
-                bottom: 80,
-                child: CircleAvatar(
-                  radius: 20.0,
-                  backgroundImage: AssetImage('assets/images/dps/10.jpg'),
-                ),
-              ),
+              // passengers position
+              ..._buildPassengerAvatars(),
             ],
           ),
           SizedBox(height: 12.0),
