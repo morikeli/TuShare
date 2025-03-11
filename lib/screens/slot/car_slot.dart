@@ -35,9 +35,13 @@ class _CarSlotState extends State<CarSlot> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
+    // Extract passenger profile pictures from API data
+    List<String> passengerImages = widget.bookedRide.passengers
+        .map((passenger) => passenger.profilePic)
+        .toList();
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
