@@ -78,13 +78,18 @@ class _CarSlotState extends State<CarSlot> with SingleTickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: [
-                PassengersTab(),
+                ScheduledRidePassengers(
+                  driverName: widget.bookedRide.driverName,
+                  driverProfilePic: widget.bookedRide.driverProfilePic,
+                  driverOrigin: widget.bookedRide.departureLocation,
+                  passengers: widget.bookedRide.passengers,
+                  price: widget.bookedRide.pricePerSeat.toString(),
+                ),
                 Center(child: Text('Coming soon')),
                 MapWidget(),  // display map showing the routes the car will go through
               ],
             ),
           ),
-          
         ],
       ),
     );
