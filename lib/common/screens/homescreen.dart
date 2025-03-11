@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ride_share/screens/history/ride_history.dart';
 import 'package:ride_share/screens/home/home.dart';
 import 'package:ride_share/screens/messages/messages_screen.dart';
 import 'package:ride_share/screens/profile/profile_screen.dart';
