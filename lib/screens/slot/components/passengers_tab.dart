@@ -41,56 +41,67 @@ class PassengersTab extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
                   color: Colors.blue.shade900,
-                  shape: BoxShape.rectangle
+                  shape: BoxShape.rectangle,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.0),
-                child: Text('Driver', style: TextStyle(color: kTextLightColor, fontSize: 9.0)),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 6.0,
+                  vertical: 1.0,
+                ),
+                child: Text(
+                  'Driver',
+                  style: TextStyle(color: kTextLightColor, fontSize: 9.0),
+                ),
               )
             ],
           ),
-          subtitle: Text('KNH', style: TextStyle(color: kTextSecondaryColor)),
-          trailing: Text('\$ 10', style: Theme.of(context).textTheme.bodyMedium),
-        ),
-        
-        ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
-          leading: CircleAvatar(
-            radius: 15.0,
-            backgroundImage: AssetImage('assets/images/dps/18.jpg'),
-          ),
-          title: Text(
-            'Yule msee',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
           subtitle: Text(
-            'Milimani Law courts',
+            driverOrigin, // driver's current location - where he/she start his journey
             style: TextStyle(color: kTextSecondaryColor),
           ),
-          trailing: Text(
-            '\$ 8',
-            style: Theme.of(context).textTheme.bodyMedium,
+          trailing: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              LineIcons.commentDots,
+              color: kIconSecondaryColor,
+            ),
           ),
         ),
-        ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
-          leading: CircleAvatar(
-            radius: 15.0,
-            backgroundImage: AssetImage('assets/images/dps/5.jpg'),
-          ),
-          title: Text('Kelvin Anderson', style: Theme.of(context).textTheme.bodyLarge),
-          subtitle: Text('NHIF towers', style: TextStyle(color: kTextSecondaryColor)),
-          trailing: Text('\$ 8', style: Theme.of(context).textTheme.bodyMedium),
-        ),
-        ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
-          leading: CircleAvatar(
-            radius: 15.0,
-            backgroundImage: AssetImage('assets/images/dps/10.jpg'),
-          ),
-          title: Text('Brenda jones', style: Theme.of(context).textTheme.bodyLarge),
-          subtitle: Text('Community stage', style: TextStyle(color: kTextSecondaryColor)),
-          trailing: Text('\$ 8', style: Theme.of(context).textTheme.bodyMedium),
-        ),
+
+        // a list of all passengers who booked this ride
+        ...passengers.map((passenger) {
+          return ListTile(
+            contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 2.0),
+            minTileHeight: 5.0,
+            leading: CircleAvatar(
+              radius: 15.0,
+              backgroundImage: NetworkImage(
+                '${ApiConstants.mediaURL}/${passenger.profilePic}',
+              ),
+            ),
+            title: Row(
+              children: [
+                Text(
+                  passenger.name,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                SizedBox(width: 8.0),
+              ],
+            ),
+            subtitle: Text(
+              passenger.pickupPoint,
+              style: TextStyle(
+                color: kTextSecondaryColor,
+              ),
+            ),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                LineIcons.commentDots,
+                color: kIconSecondaryColor,
+              ),
+            ),
+          );
+        })
       ],
     );
   }
