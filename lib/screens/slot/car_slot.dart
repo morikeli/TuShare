@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ride_share/models/ride.dart';
-import 'package:ride_share/screens/home/components/scheduled_rides/passengers.dart';
 import 'package:ride_share/screens/slot/components/map_widget.dart';
 import 'package:ride_share/screens/slot/components/passengers_sitting_position.dart';
+import 'package:ride_share/screens/slot/components/passengers_tab.dart';
 
 
 class CarSlot extends StatefulWidget {
@@ -78,7 +78,7 @@ class _CarSlotState extends State<CarSlot> with SingleTickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: [
-                ScheduledRidePassengers(
+                PassengersTab(
                   driverName: widget.bookedRide.driverName,
                   driverProfilePic: widget.bookedRide.driverProfilePic,
                   driverOrigin: widget.bookedRide.departureLocation,
