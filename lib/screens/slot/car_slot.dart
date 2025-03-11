@@ -52,14 +52,23 @@ class _CarSlotState extends State<CarSlot> with SingleTickerProviderStateMixin {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text('Sharing ride with Sarah Johnson and 2 others', style: Theme.of(context).textTheme.bodyMedium),
+            child: Text(
+              // Since the driver's name is displayed, we need to deduct 1 passenger from totalPassengers
+              widget.totalPassengers - 1 == 0
+                  ? 'Sharing a ride with ${widget.driverName}' // show passengers name if there are 2 passengers
+                  : 'Sharing a ride with ${widget.driverName} and ${widget.totalPassengers - 1} other(s)',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
           SizedBox(height: 12.0),
-          VehicleImageAndPassengersSittingPositions(),
+          VehicleImageAndPassengersSittingPositions(
+            passengersProfilePic: passengerImages,
+            driverProfilePic: widget.bookedRide.driverProfilePic,
+          ),
           TabBar(
             controller: _tabController,
             tabs: [
-              Tab(text: 'Passengers',),
+              Tab(text: 'Passengers'),
               Tab(text: 'Trip details'),
               Tab(text: 'Route'),
             ],
