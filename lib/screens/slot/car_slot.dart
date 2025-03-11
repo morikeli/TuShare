@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:ride_share/models/ride.dart';
+import 'package:ride_share/screens/home/components/scheduled_rides/passengers.dart';
 import 'package:ride_share/screens/slot/components/map_widget.dart';
 import 'package:ride_share/screens/slot/components/passengers_sitting_position.dart';
-import 'package:ride_share/screens/slot/components/passengers_tab.dart';
 
 
 class CarSlot extends StatefulWidget {
-  const CarSlot({super.key});
+  const CarSlot({
+    super.key,
+    required this.driverName,
+    required this.bookedRide,
+    required this.totalPassengers,
+  });
+  final String driverName;
+  final Ride bookedRide;
+  final int totalPassengers;
 
   @override
   State<CarSlot> createState() => _CarSlotState();
 }
 
-class _CarSlotState extends State<CarSlot>  with SingleTickerProviderStateMixin {
+class _CarSlotState extends State<CarSlot> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
