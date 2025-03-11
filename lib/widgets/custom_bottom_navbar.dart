@@ -13,45 +13,33 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: GNav(
-        onTabChange: onTabClicked,
-        rippleColor: Colors.grey, // tab button ripple color when pressed
-        hoverColor: Colors.white38, // tab button hover color
-        duration: Duration(milliseconds: 300), // tab animation duration
-        gap: 8, // the tab button gap between icon and text
-        color: Colors.grey, // unselected icon color
-        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0), // navigation bar padding
-        textStyle: Theme.of(context).textTheme.titleSmall,
-        tabs: [
-          GButton(
-            icon: LineIcons.home,
-            text: 'Home',
-            // textColor: kTextLightColor,
-          ),
-          GButton(
-            icon: LineIcons.car,
-            text: 'Ride history',
-            textColor: kTextLightColor,
-          ),
-          GButton(
-            icon: LineIcons.moneyBill,
-            text: 'Wallet',
-            textColor: kTextLightColor,
-          ),
-          GButton(
-            icon: LineIcons.commentsAlt,
-            text: 'Messages',
-            textColor: kTextLightColor,
-          ),
-          GButton(
-            icon: LineIcons.user,
-            text: 'Profile',
-            textColor: kTextLightColor,
-          ),
-        ],
-      ),
+    return GNav(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      onTabChange: onTabClicked,
+      rippleColor: Colors.grey, // tab button ripple color when pressed
+      hoverColor: Colors.white38, // tab button hover color
+      duration: Duration(milliseconds: 300), // tab animation duration
+      gap: 8, // the tab button gap between icon and text
+      color: Colors.grey, // unselected icon color
+      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0), // navigation bar padding
+      textStyle: Theme.of(context).textTheme.titleSmall,
+      tabs: [
+        GButton(
+          icon: LineIcons.home,
+          text: 'Home',
+          // textColor: kTextLightColor,
+        ),
+        GButton(
+          icon: LineIcons.commentsAlt,
+          text: 'Messages',
+          textColor: kTextLightColor,
+        ),
+        GButton(
+          icon: LineIcons.user,
+          text: 'Profile',
+          textColor: kTextLightColor,
+        ),
+      ],
     );
   }
 }
