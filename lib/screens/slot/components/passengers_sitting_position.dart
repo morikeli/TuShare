@@ -60,4 +60,33 @@ class VehicleImageAndPassengersSittingPositions extends StatelessWidget {
       ),
     );
   }
+
+  // Generates a list of Positioned CircleAvatars for passengers dynamically
+  List<Widget> _buildPassengerAvatars() {
+    // Define positions based on a standard 4-seat layout
+    List<Map<String, dynamic>> positions = [
+      {'left': 140.0, 'top': 68.0},     // Front-right seat
+      {'right': 104.0, 'top': 68.0},    // Back-right seat
+      {'right': 104.0, 'bottom': 80.0}, // Back-left seat
+    ];
+
+    List<Widget> avatars = [];
+    for (int i = 0; i < passengersProfilePic.length && i < positions.length; i++) {
+      avatars.add(
+        Positioned(
+          left: positions[i].containsKey('left') ? positions[i]['left'] : null,
+          right: positions[i].containsKey('right') ? positions[i]['right'] : null,
+          top: positions[i].containsKey('top') ? positions[i]['top'] : null,
+          bottom: positions[i].containsKey('bottom') ? positions[i]['bottom'] : null,
+          child: CircleAvatar(
+            radius: 20.0,
+            backgroundImage: NetworkImage(
+              "${ApiConstants.mediaURL}/${passengersProfilePic[i]}",
+            ),
+          ),
+        ),
+      );
+    }
+    return avatars;
+  }
 }
