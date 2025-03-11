@@ -18,13 +18,6 @@ class ScheduledRidesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator.adaptive(
-      onRefresh: () => rideController.fetchBookedRides(),
-      child: currentUserBookedRides(context),
-    );
-  }
-
-  Obx currentUserBookedRides(BuildContext context) {
     return Obx(() {
       // if screen is loading, show a loading indicator
       if (rideController.isLoading.value) {
