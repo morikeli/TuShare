@@ -1,12 +1,18 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
 
 class VehicleImageAndPassengersSittingPositions extends StatelessWidget {
   const VehicleImageAndPassengersSittingPositions({
     super.key,
+    required this.passengersProfilePic,
+    required this.driverProfilePic,
   });
+
+  final List<String> passengersProfilePic;
+  final String driverProfilePic;
 
   @override
   Widget build(BuildContext context) {
