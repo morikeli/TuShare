@@ -1,11 +1,20 @@
-
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
 class PassengersTab extends StatelessWidget {
   const PassengersTab({
     super.key,
+    required this.price,
+    required this.driverName,
+    required this.driverProfilePic,
+    required this.driverOrigin,
+    required this.passengers,
   });
+
+  final String driverName, driverProfilePic, driverOrigin, price;
+  final List passengers;
 
   @override
   Widget build(BuildContext context) {
