@@ -25,12 +25,14 @@ class PassengersTab extends StatelessWidget {
           minTileHeight: 5.0,
           leading: CircleAvatar(
             radius: 15.0,
-            backgroundImage: AssetImage('assets/images/dps/2.jpg'),
+            backgroundImage: NetworkImage(
+              '${ApiConstants.mediaURL}/$driverProfilePic',
+            ),
           ),
           title: Row(
             children: [
               Text(
-                'Sarah Johnson',
+                driverName,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(width: 8.0),
