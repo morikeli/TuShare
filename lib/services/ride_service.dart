@@ -10,7 +10,7 @@ class RideService extends GetConnect  {
   @override
   void onInit() {
     httpClient.baseUrl = apiUrl;
-    httpClient.timeout = const Duration(seconds: 30);
+    httpClient.timeout = const Duration(minutes: 3);
     super.onInit();
   }
 
