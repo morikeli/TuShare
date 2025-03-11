@@ -53,21 +53,28 @@ class ScheduledRidesCard extends StatelessWidget {
   }
 
   Widget allUsersBookedRides() {
-    return ListView.builder(
-      padding: EdgeInsets.only(bottom: 72.0),
-      itemCount: rideController.bookedRides.length,
-      itemBuilder: (context, index) {
-        final bookedRide = rideController.bookedRides[index];
+    return RefreshIndicator.adaptive(
+      onRefresh: () async => await rideController.fetchBookedRides(),
+      child: ListView.builder(
+        padding: EdgeInsets.only(bottom: 72.0),
+        itemCount: rideController.bookedRides.length,
+        itemBuilder: (context, index) {
+          final bookedRide = rideController.bookedRides[index];
 
-        return GestureDetector(
-          onTap: () => Get.to(
-            () => CarSlot(),
-            transition: Transition.rightToLeft,
-            duration: Duration(milliseconds: 1500),
-          ),
-          child: cards(bookedRide, context),    // cards that show booked rides
-        );
-      },
+          return GestureDetector(
+            onTap: () => Get.to(
+              () => CarSlot(
+                driverName: bookedRide.driverName,
+                bookedRide: bookedRide,
+                totalPassengers: bookedRide.passengers.length,
+              ),
+              transition: Transition.rightToLeft,
+              duration: Duration(milliseconds: 1500),
+            ),
+            child: cards(bookedRide, context), // cards that show booked rides
+          );
+        },
+      ),
     );
   }
 
