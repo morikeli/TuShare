@@ -29,9 +29,22 @@ class ScheduledRidesCard extends StatelessWidget {
         );
       }
 
-      if (rideController.availableRides.isEmpty) {
-        return Center(
-          child: Text("You have not booked any rides."),
+      if (rideController.bookedRides.isEmpty) {
+        return ListView(
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * .4),
+            Center(
+              child: Column(
+                children: [
+                  Text('You have not booked any rides.'),
+                  ElevatedButton(
+                    onPressed: rideController.fetchBookedRides,
+                    child: Text('Refresh'),
+                  ),
+                ],
+              ),
+            ),
+          ],
         );
       }
 
