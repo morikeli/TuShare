@@ -1,13 +1,15 @@
 # TuShare
 
 ## Mobile app screenshots
-| Homescreen (My Rides tab) | Homescreen (Discover tab) |
+| Light mode | Dark mode |
 | ------------------------- | ------------------------- |
-| ![homescreen](https://github.com/user-attachments/assets/631f11cb-055d-4301-837e-27e052ddb16e) | ![discovery-tab](https://github.com/user-attachments/assets/615cad5c-3c32-490a-af32-6ce80aa56672) |
+| | |
+| Homescreen (My rides tab) | Homescreen (discover tab) |
+| ![homescreen-light](https://github.com/user-attachments/assets/5cea39e7-bdc1-45e8-a44b-b691314afb78) | ![homescreen-dark](https://github.com/user-attachments/assets/d5560fce-0087-41c8-85c9-adcb8e3f4455)|
 | | |
 | | |
 | Profile screen (light mode) | Profile screen (dark mode) |
-| ![profile-light-mode](https://github.com/user-attachments/assets/71b57c96-bb22-41bd-8d85-9ffb91f22ffa) | ![profile-dark-mode](https://github.com/user-attachments/assets/bc350384-668a-4562-b8bc-81051aa6a3fe) |
+| ![profile-screen-light](https://github.com/user-attachments/assets/6c906ee9-8ea1-4dc6-a7a9-d8780ca647c2) | ![profile-screen-dark](https://github.com/user-attachments/assets/74d18205-6896-45ec-b3a0-6463f2c0de4c) |
 | | |
 | | |
 | Car slots screen | Car slots screen on scroll |
@@ -18,8 +20,9 @@
 | ![car-slots-route-screenshot](https://github.com/user-attachments/assets/6ef671ae-6fca-4292-8b2b-d63f6890df02) | ![fullscreen-map](https://github.com/user-attachments/assets/9815dd87-e8bf-4805-b6f5-9641901e233e) |
 | | |
 | | |
-| Messages screen | Chat screen
-| ![flutter_01](https://github.com/user-attachments/assets/c3a77632-9d33-4f1f-9465-eb4c2d048e29) | ![flutter_02](https://github.com/user-attachments/assets/8e13aceb-8de6-4347-b066-0575bfb85344) |
+| Messages screen | Messages screen |
+| ![messages-screen-light](https://github.com/user-attachments/assets/6431a69f-7376-4d91-becc-18aa3fd5c055) | ![messages-screen-dark](https://github.com/user-attachments/assets/c3a77632-9d33-4f1f-9465-eb4c2d048e29) | 
+| ![chat-screen-light](https://github.com/user-attachments/assets/0c0b6fc8-53e9-4020-b934-c2eaf494cd2b) | ![chat-screen-dark](https://github.com/user-attachments/assets/8e13aceb-8de6-4347-b066-0575bfb85344) |
 
 
 ## Overview
