@@ -11,5 +11,7 @@ class ApiConstants {
   static String bookedRides = '$baseURL/api/v1/rides/booked';
   static String shareRide = '$baseURL/api/v1/rides/new-ride';
   static String bookRide = '$baseURL/api/v1/';
+  static String getMessages = '$baseURL/api/v1/message';
+  static String sendMessage = '$baseURL/api/v1/message';    // .../message/:id/send
   static String mediaURL = baseURL;
 }
