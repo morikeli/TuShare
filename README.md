@@ -18,8 +18,8 @@
 | ![car-slots-route-screenshot](https://github.com/user-attachments/assets/6ef671ae-6fca-4292-8b2b-d63f6890df02) | ![fullscreen-map](https://github.com/user-attachments/assets/9815dd87-e8bf-4805-b6f5-9641901e233e) |
 | | |
 | | |
-| Fullscreen map marker popup |  |
-| ![fullscreen-map-marker-popup](https://github.com/user-attachments/assets/6db633c3-cd2d-4a49-8478-3e3d136a0561) | |
+| Messages screen | Chat screen
+| ![flutter_01](https://github.com/user-attachments/assets/c3a77632-9d33-4f1f-9465-eb4c2d048e29) | ![flutter_02](https://github.com/user-attachments/assets/8e13aceb-8de6-4347-b066-0575bfb85344) |
 
 
 ## Overview
