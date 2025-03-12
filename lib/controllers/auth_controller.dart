@@ -134,8 +134,7 @@ class AuthController {
       
 
       if (token == null) {
-        Get.offNamed('/login');
-        return;
+        return Get.offNamed('/login');
       }
 
       // Make the logout request
