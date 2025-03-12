@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -153,11 +154,11 @@ class AuthController {
       } else {
         // Handle logout failure
         final Map<String, dynamic> responseBody = json.decode(response.body);
-        final RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "${responseBody['detail']}"}.obs;
+        final RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
         CustomSnackbar(snackbarMessage: errorMessage);
       }
     } catch (e) {
-      RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "$e"}.obs;
+      RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "$e", "type": ContentType.failure}.obs;
       CustomSnackbar(snackbarMessage: errorMessage);
     }
   }
