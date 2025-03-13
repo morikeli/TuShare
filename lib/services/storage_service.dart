@@ -25,7 +25,6 @@ class StorageService {
     final prefs = await SharedPreferences.getInstance();
     return {
       'access_token': prefs.getString('access_token') ?? '',
-      'last_login': prefs.getString('last_login') ?? ''
     };
   }
 
