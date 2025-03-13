@@ -21,9 +21,40 @@ class MessagesScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator.adaptive(
       onRefresh: () async => await messageController.fetchUserMessages(),
-      child: Scrollbar(
-        child: groupMessages(),
-      ),
+      child: Obx(() {
+        // if screen is loading, show a loading indicator
+        if (messageController.isLoading.value) {
+          return Center(
+            child: SpinKitFadingCircle(
+              color: kPrimaryColor,
+              size: 68.0,
+            ),
+          );
+        }
+
+        if (messageController.currentUserMessages.isEmpty) {
+          return ListView(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * .4),
+              Center(
+                child: Column(
+                  children: [
+                    Icon(LineIcons.commentSlash),
+                    Text('You dont have any messages.'),
+                    ElevatedButton(
+                      onPressed: messageController.fetchUserMessages,
+                      child: Text('Refresh'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        }
+        return Scrollbar(
+          child: groupMessages(),
+        );
+      }),
     );
   }
 
