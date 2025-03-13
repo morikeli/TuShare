@@ -5,21 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 final logger = Logger('Storage_Services');
 
 class StorageService {
-
-  // log user info - for debugging
-  static Future<void> printUserInfo() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    // Retrieve the values from shared preferences
-    String? accessToken = prefs.getString('access_token');
-    String? lastLogin = prefs.getString('last_login');
-    
-    // Show logs at the terminal
-    logger.info('Access token: $accessToken');
-    logger.info('Last login: $lastLogin');
-  }
-
-
   // get access token
   static Future<Map<String, String>> getUserInfo() async {
     final prefs = await SharedPreferences.getInstance();
