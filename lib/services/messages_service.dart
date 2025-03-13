@@ -19,7 +19,7 @@ class MessagesService extends GetConnect {
 
 
   // retrieve group messages
-  Future<List<GroupMessages>> fetchCurentUserMessages() async {
+  Future<List<GroupMessages>> getUserMessages() async {
     String? userID = await JwtDecoder.extractUserID();  // Get user ID from token
 
     // if userID does not exist, return an error message.
