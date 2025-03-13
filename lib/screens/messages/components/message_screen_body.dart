@@ -79,7 +79,7 @@ class MessagesScreenBody extends StatelessWidget {
     );
   }
 
-  ListTile messageListTile(GroupMessages message, BuildContext context) {
+  ListTile messageListTile(UserMessages message, BuildContext context) {
     return ListTile(
         leading: CircleAvatar(
           backgroundImage: NetworkImage(

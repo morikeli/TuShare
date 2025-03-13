@@ -19,7 +19,7 @@ class MessagesService extends GetConnect {
 
 
   // retrieve group messages
-  Future<List<GroupMessages>> getUserMessages() async {
+  Future<List<UserMessages>> getUserMessages() async {
     String? userID = await JwtDecoder.extractUserID();  // Get user ID from token
 
     // if userID does not exist, return an error message.
@@ -37,7 +37,7 @@ class MessagesService extends GetConnect {
       final RxMap<String, dynamic> responseMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
       return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
     } else {
-      return (response.body as List).map((msg) => GroupMessages.fromJson(msg)).toList();
+      return (response.body as List).map((msg) => UserMessages.fromJson(msg)).toList();
     }
 
   }
