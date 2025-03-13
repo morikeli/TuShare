@@ -80,7 +80,9 @@ class MessagesScreenBody extends StatelessWidget {
 
         return ListTile(
           leading: CircleAvatar(
-            backgroundImage: NetworkImage('${ApiConstants.mediaURL}/${message.driverProfilePic}'),
+            backgroundImage: NetworkImage(
+              '${ApiConstants.mediaURL}/${message.driverProfilePic}',
+            ),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +92,9 @@ class MessagesScreenBody extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               Text(
-                MessagesDateFormat.formatTimeinHoursAndMinutes(message.latestTimeStamp),
+                MessagesDateFormat.formatTimeinHoursAndMinutes(
+                    message.latestTimeStamp,
+                ),
                 style: TextStyle(color: kTextSecondaryColor, fontSize: 12.0),
               ),
             ],
