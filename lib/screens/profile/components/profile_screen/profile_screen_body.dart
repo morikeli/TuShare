@@ -78,7 +78,7 @@ class ProfileScreenBody extends StatelessWidget {
       children: [
         // 1. User profile picture
         Opacity(
-          opacity: Get.isDarkMode ? .5 : .3,     // set opacity to 0.5 if the app's theme is dark mode otherwise set it to 0.3
+          opacity: Get.isDarkMode ? .5 : .84,     // set opacity to 0.5 if the app's theme is dark mode otherwise set it to 0.84
           child: Image.network(
             '${ApiConstants.mediaURL}/${profile.profilePicture}',
             height: 280.0,
