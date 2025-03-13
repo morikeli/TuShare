@@ -52,33 +52,28 @@ class MessagesScreenBody extends StatelessWidget {
           );
         }
         return Scrollbar(
-          child: groupMessages(),
+          child: messagesListViewBuilder(),
         );
       }),
     );
   }
 
-  GestureDetector groupMessages() {
-    return GestureDetector(
-      onTap: () {
-        Get.to(
-          () => ChatScreen(),
-          duration: Duration(milliseconds: 1500),
-          transition: Transition.downToUp,
-        );
-      },
-      child: groupMessagesTiles(),
-    );
-  }
-
-  ListView groupMessagesTiles() {
+  ListView messagesListViewBuilder() {
     return ListView.builder(
       padding: EdgeInsets.only(bottom: 72.0),
       itemCount: messageController.currentUserMessages.length,
       itemBuilder: (context, index) {
         final message = messageController.currentUserMessages[index];
 
-        return messageListTile(message, context);
+        return GestureDetector(
+          onTap: () {
+            Get.to(
+              () => ChatScreen(),
+              duration: Duration(milliseconds: 1500),
+              transition: Transition.downToUp,
+            );
+          },
+          child: messageListTile(message, context),);
       },
     );
   }
