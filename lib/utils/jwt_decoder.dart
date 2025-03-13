@@ -9,8 +9,6 @@ class JwtDecoder {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('access_token');  // Retrieve access token
 
-    print('Token: $token');
-
     if (token == null) {
       await StorageService.clearUserInfo();     // delete previous access token
       return Get.offNamed('/login');    // redirect user to the login screen
@@ -22,8 +20,6 @@ class JwtDecoder {
     if (userID == null) {
       return Future.error("User ID not found in token.");
     }
-
-    print('User ID: $userID');
 
     return userID;
   }
