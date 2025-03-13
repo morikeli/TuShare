@@ -78,34 +78,38 @@ class MessagesScreenBody extends StatelessWidget {
       itemBuilder: (context, index) {
         final message = messageController.currentUserMessages[index];
 
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              '${ApiConstants.mediaURL}/${message.driverProfilePic}',
-            ),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                message.driverName,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              Text(
-                MessagesDateFormat.formatTimeinHoursAndMinutes(
-                    message.latestTimeStamp,
-                ),
-                style: TextStyle(color: kTextSecondaryColor, fontSize: 12.0),
-              ),
-            ],
-          ),
-          subtitle: Text(
-            message.latestMessage,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        );
+        return messageListTile(message, context);
       },
     );
+  }
+
+  ListTile messageListTile(GroupMessages message, BuildContext context) {
+    return ListTile(
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(
+            '${ApiConstants.mediaURL}/${message.driverProfilePic}',
+          ),
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              message.driverName,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            Text(
+              MessagesDateFormat.formatTimeinHoursAndMinutes(
+                  message.latestTimeStamp,
+              ),
+              style: TextStyle(color: kTextSecondaryColor, fontSize: 12.0),
+            ),
+          ],
+        ),
+        subtitle: Text(
+          message.latestMessage,
+          overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+      );
   }
 }
