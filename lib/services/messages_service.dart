@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/models/messages.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
+import 'package:ride_share/utils/jwt_decoder.dart';
 
 
 class MessagesService extends GetConnect {
@@ -18,7 +19,15 @@ class MessagesService extends GetConnect {
 
 
   // retrieve group messages
-  Future<List<GroupMessages>> fetchCurentUserMessages(String userID) async {
+  Future<List<GroupMessages>> fetchCurentUserMessages() async {
+    String? userID = await JwtDecoder.extractUserID();  // Get user ID from token
+
+    // if userID does not exist, return an error message.
+    if (userID == null) {
+      final RxMap<String, dynamic> responseMessage = {"title": "Error!","message": "User credentials not found.","type": ContentType.failure}.obs;
+      return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
+    }
+
     final response = await get('$url/$userID');
 
     if (response.status.hasError) {
