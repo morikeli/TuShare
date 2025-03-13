@@ -18,7 +18,7 @@ class MessagesScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator.adaptive(
-      onRefresh: () async => await messageController.fetchGroupMessages('749d50982ce7456f9f3ced354d2ff52c'),
+      onRefresh: () async => await messageController.fetchUserMessages(),
       child: Scrollbar(
         child: groupMessages(),
       ),
