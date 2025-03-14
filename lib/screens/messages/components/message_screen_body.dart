@@ -68,8 +68,9 @@ class MessagesScreenBody extends StatelessWidget {
 
         return GestureDetector(
           onTap: () {
+            messageController.fetchGroupChats(message.rideID);    // fetch chats of the selected tile
             Get.to(
-              () => ChatScreen(),
+              () => ChatScreen(driverName: message.driverName, driverProfilePic: message.driverProfilePic,),
               duration: Duration(milliseconds: 1500),
               transition: Transition.downToUp,
             );
