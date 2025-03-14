@@ -8,7 +8,7 @@ import 'package:ride_share/utils/jwt_decoder.dart';
 
 
 class MessagesService extends GetConnect {
-  final String url = ApiConstants.getGroupMessages;
+  final String url = ApiConstants.getUserMessages;
 
   @override
   void onInit() {
@@ -28,7 +28,7 @@ class MessagesService extends GetConnect {
       return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
     }
 
-    final response = await get('$url/$userID');
+    final response = await get('$url/$userID/messages');
 
     if (response.status.hasError) {
       final Map<String, dynamic> responseBody = json.decode(response.body);
