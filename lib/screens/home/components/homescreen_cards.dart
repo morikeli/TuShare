@@ -23,13 +23,13 @@ class HomeScreenCards extends StatelessWidget {
       child: Column(
         children: [
           searchForAvailableRidesTextField(), // text field to search for available rides
-          searchResults(),
+          searchResults(context),
         ],
       ),
     );
   }
 
-  Widget searchResults() {
+  Widget searchResults(BuildContext context) {
     return Expanded(
       child: Obx(() {
         if (rideController.isLoading.value) {
@@ -39,9 +39,20 @@ class HomeScreenCards extends StatelessWidget {
         }
 
         if (rideController.availableRides.isEmpty) {
-          return Center(child: Text('No data available'));
+          return ListView(
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height * .16),
+                    Icon(LineIcons.searchLocation, size: 48.0),
+                    Text('No data available'),
+                  ],
+                ),
+              ),
+            ],
+          );
         }
-
         return availableRidesSearchResults();
       }),
     );
@@ -93,7 +104,7 @@ class HomeScreenCards extends StatelessWidget {
       child: TextField(
         controller: searchController,
         decoration: InputDecoration(
-          hintText: "Enter destination...",
+          hintText: "Enter destination ...",
           prefixIcon: Icon(LineIcons.search),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/controllers/ride_controller.dart';
 import 'package:ride_share/models/ride.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides/card_ribbon.dart';
@@ -32,10 +33,11 @@ class ScheduledRidesCard extends StatelessWidget {
       if (rideController.bookedRides.isEmpty) {
         return ListView(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * .4),
+            SizedBox(height: MediaQuery.of(context).size.height * .32),
             Center(
               child: Column(
                 children: [
+                  Icon(LineIcons.calendarMinus, size: 48.0),
                   Text('You have not booked any rides.'),
                   ElevatedButton(
                     onPressed: rideController.fetchBookedRides,

@@ -42,6 +42,7 @@ class ProfileScreenBody extends StatelessWidget {
             Center(
               child: Column(
                 children: [
+                  Icon(LineIcons.userSlash, size: 48.0),
                   Text('No profile data available.'),
                   ElevatedButton(
                     onPressed: profileController.fetchuserProfile,
