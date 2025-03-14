@@ -21,4 +21,9 @@ class MessagesDateFormat {
     }
   }
 
+  static String chatBubbleTimeFormat(String dateString) {
+    DateTime parsedDate = DateTime.parse(dateString);
+    return DateFormat('HH:mm').format(parsedDate);    // return time in hours and minutes - 24hr clock system
+  }
+
 }
