@@ -43,4 +43,17 @@ class MessagesController extends GetxController {
       isLoading(false);
     }
   }
+
+  // method for sending group messages
+  Future<void> sendMessage(String rideId, String messageContent) async {
+    isLoading(true);
+    bool success = await _messagesService.postMessage(rideId, messageContent);
+    if (success) {
+      fetchGroupChats(rideId);    // fetch newly sent message
+      update();   // update UI
+    } else {
+      Get.snackbar("Error", "Couldn't send your message.");
+    }
+    isLoading(false);
+  }
 }
