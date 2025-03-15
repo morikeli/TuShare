@@ -29,6 +29,7 @@ class SendMessageWidget extends StatelessWidget {
 
   TextFormField textInputField(BuildContext context) {
     return TextFormField(
+      controller: messageContentEditingController,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
