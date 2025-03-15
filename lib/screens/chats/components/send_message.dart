@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:ride_share/controllers/message_controller.dart';
 
 class SendMessageWidget extends StatelessWidget {
-  const SendMessageWidget({
+  SendMessageWidget({
     super.key,
+    required this.rideId,
   });
+
+  final String rideId;
+  final MessagesController messagesController = Get.put(MessagesController());
+  final TextEditingController messageContentEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
