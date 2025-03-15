@@ -20,7 +20,7 @@ class ApiConstants {
   static String bookRide = '$baseURL/api/v1/';
 
   // messages endpoints
-  static String getUserMessages = '$baseURL/api/v1/message';
-  static String getGroupChats = '$baseURL/api/v1/message';
-  static String sendMessage = '$baseURL/api/v1/message';    // .../message/:id/send
+  static String getUserMessages = '$baseURL/api/v1/message';    // .../message/userID/messages
+  static String getGroupChats = '$baseURL/api/v1/message';    // .../message/:rideID/get
+  static String sendMessage = '$baseURL/api/v1/message/send';    // .../message/:id/send
 }
