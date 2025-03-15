@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 
 class MessagesDateFormat {
-    // show latest message's timestamp in hours and minutes
+  // show latest message's timestamp in hours and minutes
   // if message is past a day, show 'Yesterday' else show the date it was sent
   static String formatTimeinHoursAndMinutes(String dateString) {
     DateTime parsedDate = DateTime.parse(dateString);
