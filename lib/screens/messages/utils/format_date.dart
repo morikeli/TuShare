@@ -34,6 +34,8 @@ class MessagesDateFormat {
     }
   }
 
+
+  // date format in chat bubble - return timestamp in 24hr time format
   static String chatBubbleTimeFormat(String dateString) {
     DateTime parsedDate = DateTime.parse(dateString);
     return DateFormat('HH:mm').format(parsedDate);    // return time in hours and minutes - 24hr clock system
