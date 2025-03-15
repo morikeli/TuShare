@@ -42,7 +42,10 @@ class SendMessageWidget extends StatelessWidget {
         hintStyle: Theme.of(context).textTheme.bodyMedium,
         suffixIcon: IconButton(
           tooltip: 'Send message',
-          onPressed: () {},
+          onPressed: () {
+            messagesController.sendMessage(rideId, messageContentEditingController.text);
+            messageContentEditingController.clear();    // clear the input field after sending message
+          },
           icon: Icon(LineIcons.arrowCircleUp),
         ),
       ),
