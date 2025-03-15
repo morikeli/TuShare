@@ -21,6 +21,19 @@ class MessagesDateFormat {
     }
   }
 
+  // get message timestamp and show date format in a banner in chat screen
+  static String getFormattedDate(DateTime date) {
+    DateTime now = DateTime.now();
+
+    if (DateFormat('yyyy-MM-dd').format(date) == DateFormat('yyyy-MM-dd').format(now)) {
+      return "Today";     // if the timestamp matches current date, return 'Today'
+    } else if (DateFormat('yyyy-MM-dd').format(date) == DateFormat('yyyy-MM-dd').format(now.subtract(Duration(days: 1)))) {
+      return "Yesterday";
+    } else {
+      return DateFormat('EEEE, MMM d, yyyy').format(date);  // Example: Monday, Mar 11, 2025
+    }
+  }
+
   static String chatBubbleTimeFormat(String dateString) {
     DateTime parsedDate = DateTime.parse(dateString);
     return DateFormat('HH:mm').format(parsedDate);    // return time in hours and minutes - 24hr clock system
