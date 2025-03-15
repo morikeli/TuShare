@@ -113,3 +113,19 @@ class UserMessages {
     );
   }
 }
+
+class SentMessage {
+  final String senderID, messageContent;
+
+  SentMessage({
+    required this.senderID,
+    required this.messageContent,
+  });
+
+  factory SentMessage.fromJson(Map<String, dynamic> json) {
+    return SentMessage(
+      senderID: json['ride_id'],
+      messageContent: json['content']
+    );
+  }
+}
