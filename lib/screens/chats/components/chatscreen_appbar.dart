@@ -40,8 +40,7 @@ AppBar chatScreenAppBar(
           ),
         ],
       ),
-      actions: [
-        
-      ],
-    );
-  }
+    ),
+    actions: [],
+  );
+}
