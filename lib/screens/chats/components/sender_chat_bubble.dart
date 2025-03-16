@@ -4,7 +4,11 @@ import 'package:ride_share/utils/constants/colors.dart';
 class SenderChatBubble extends StatelessWidget {
   const SenderChatBubble({
     super.key,
+    required this.messageContent,
+    required this.timestamp,
   });
+
+  final String messageContent, timestamp;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +16,7 @@ class SenderChatBubble extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Container(
         constraints: BoxConstraints(
-          minWidth: MediaQuery.of(context).size.width * .04,
-          maxWidth: MediaQuery.of(context).size.width * .6,
+          maxWidth: MediaQuery.of(context).size.width * .68,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
