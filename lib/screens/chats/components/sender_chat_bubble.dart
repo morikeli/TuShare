@@ -14,28 +14,52 @@ class SenderChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * .68,
+      child: chatBubbleContainer(context),
+    );
+  }
+
+  Container chatBubbleContainer(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width * .68,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(8.0),
+          bottomRight: Radius.circular(8.0),
+          topLeft: Radius.circular(8.0),
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(8.0),
-            bottomRight: Radius.circular(8.0),
-            topLeft: Radius.circular(8.0),
+        color: kPrimaryColor,
+      ),
+      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      child: chatBubbleContent(),
+    );
+  }
+
+  IntrinsicWidth chatBubbleContent() {
+    return IntrinsicWidth(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            messageContent,
+            style: TextStyle(
+              color: kTextLightColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+            ),
           ),
-          color: kPrimaryColor,
-        ),
-        margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-        child: Text(
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, repellendus eaque provident soluta quibusdam quae. Earum autem molestias repellendus harum distinctio voluptatum architecto impedit commodi reiciendis. Ab hic quae vitae.',
-          style: TextStyle(
-            color: kTextLightColor,
-            fontSize: 14.0,
-            fontWeight: FontWeight.w400,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                timestamp,
+                style: TextStyle(color: kTextSecondaryColor, fontSize: 12.0),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
     );
   }
