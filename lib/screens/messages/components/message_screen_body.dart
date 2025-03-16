@@ -40,8 +40,8 @@ class MessagesScreenBody extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Icon(LineIcons.commentSlash),
-                    Text('You dont have any messages.'),
+                    Icon(LineIcons.commentSlash, size: 48.0),
+                    Text("You don't have any messages."),
                     ElevatedButton(
                       onPressed: messageController.fetchUserMessages,
                       child: Text('Refresh'),
@@ -70,7 +70,7 @@ class MessagesScreenBody extends StatelessWidget {
           onTap: () {
             messageController.fetchGroupChats(message.rideID);    // fetch chats of the selected tile
             Get.to(
-              () => ChatScreen(driverName: message.driverName, driverProfilePic: message.driverProfilePic,),
+              () => ChatScreen(rideId: message.rideID, driverName: message.driverName, driverProfilePic: message.driverProfilePic,),
               duration: Duration(milliseconds: 1500),
               transition: Transition.downToUp,
             );
