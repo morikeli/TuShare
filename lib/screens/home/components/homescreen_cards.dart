@@ -16,16 +16,11 @@ class HomeScreenCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator.adaptive(
-      onRefresh: () async {
-        await rideController.fetchAvailableRides(searchController.text);
-      },
-      child: Column(
-        children: [
-          searchForAvailableRidesTextField(), // text field to search for available rides
-          searchResults(context),
-        ],
-      ),
+    return Column(
+      children: [
+        searchForAvailableRidesTextField(),     // text field to search for available rides
+        searchResults(context),
+      ],
     );
   }
 
