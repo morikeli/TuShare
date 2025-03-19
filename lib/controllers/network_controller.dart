@@ -23,7 +23,6 @@ class NetworkController extends GetxController {
 
   void showNoInternetDialog() {
     Get.defaultDialog(
-      barrierDismissible: false,
       title: "No Internet!",
       middleText: "You are offline. Please check your connection.",
       textConfirm: "OK",
