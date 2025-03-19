@@ -9,6 +9,7 @@ import 'package:ride_share/models/user_profile.dart';
 import 'package:ride_share/services/storage_service.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:http/http.dart' as http;
+import 'package:ride_share/utils/network_util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -68,6 +69,9 @@ class ProfileController extends GetxController {
 
   // show snackbar
   Future<void> fetchuserProfile() async {
+    // check connectivity before making a request
+    if (!NetworkUtils.checkInternet()) return;       // Stop if there's no connectivity
+    
     isLoading(true);
     void showErrorSnackbar(String title, String message) {
       Get.showSnackbar(
@@ -135,6 +139,9 @@ class ProfileController extends GetxController {
 
   // method to update user profile
   Future<void> updateProfile() async {
+    // check connectivity before making a request
+    if (!NetworkUtils.checkInternet()) return;       // Stop if there's no connectivity
+
     isLoading(true);
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('access_token');
