@@ -7,8 +7,8 @@ import 'package:ride_share/controllers/ride_controller.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
 import 'package:ride_share/utils/constants/colors.dart';
 
-class HomeScreenCards extends StatelessWidget {
-  HomeScreenCards({
+class AvailableRides extends StatelessWidget {
+  AvailableRides({
     super.key,
   });
   final RideController rideController = Get.put(RideController());    // Inject controller

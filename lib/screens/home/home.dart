@@ -50,7 +50,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             controller: _tabController,
             children: [
               Scrollbar(child: ScheduledRidesCard()),
-              Scrollbar(child: HomeScreenCards()),
+              Scrollbar(child: AvailableRides()),
             ],
           ),
         ),
