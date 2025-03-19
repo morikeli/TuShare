@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/common/widgets/appbar.dart';
-import 'package:ride_share/screens/home/components/homescreen_cards.dart';
+import 'package:ride_share/screens/home/components/available_rides.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides_card.dart';
 
 
