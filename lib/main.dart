@@ -3,12 +3,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:ride_share/common/screens/homescreen.dart';
+import 'package:ride_share/controllers/network_controller.dart';
 import 'package:ride_share/routes.dart';
 import 'package:ride_share/theme/theme.dart';
 
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  Get.put(NetworkController());            // Initialize NetworkController
   await dotenv.load(fileName: ".env");    // Load .env before running the app
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const GoRideApp());
