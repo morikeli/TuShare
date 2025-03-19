@@ -104,6 +104,13 @@ class HomeScreenCards extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
+          suffixIcon: IconButton(
+            onPressed: () {
+              searchController.clear();
+              rideController.availableRides.clear();    // clear search results in UI
+            },
+            icon: Icon(LineIcons.backspace),
+          )
         ),
         onChanged: (value) {
           // updated search results as the user types in their desired location
