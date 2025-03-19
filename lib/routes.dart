@@ -9,7 +9,5 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: '/login', page: () => LoginScreen()),
   GetPage(name: '/signup', page: () => SignupScreen()),
   GetPage(name: '/home', page: () => HomeScreen()),
-  // GetPage(name: '/car-slot', page: () => CarSlot()),
-  // GetPage(name: '/chat', page: () => ChatScreen()),
   GetPage(name: '/edit-profile', page: () => EditProfileScreen()),
 ];
