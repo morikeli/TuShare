@@ -113,7 +113,7 @@ class HomeScreenCards extends StatelessWidget {
           )
         ),
         onChanged: (value) {
-          // updated search results as the user types in their desired location
+          // update search results as the user types their preferred destination
           if (value.isNotEmpty) {
             rideController.fetchAvailableRides(value);
           }
