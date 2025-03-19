@@ -25,8 +25,8 @@ class CustomBottomNavBar extends StatelessWidget {
       textStyle: Theme.of(context).textTheme.titleSmall,
       tabs: [
         GButton(
-          icon: LineIcons.alternateCar,
-          text: 'Rides',
+          icon: LineIcons.home,
+          text: 'Home',
           // textColor: kTextLightColor,
         ),
         GButton(
