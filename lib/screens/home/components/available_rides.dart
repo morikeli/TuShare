@@ -228,6 +228,7 @@ class AvailableRides extends StatelessWidget {
 
   Widget cardHeader(
     BuildContext context,
+    String rideId,
     String driversName,
     String driverProfilePic,
     String vehicleModel,
