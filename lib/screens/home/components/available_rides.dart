@@ -68,6 +68,7 @@ class AvailableRides extends StatelessWidget {
               children: [
                 cardHeader(
                   context,
+                  availableRide.id,
                   availableRide.driverName,
                   availableRide.driverProfilePic,
                   availableRide.vehicleModel,
