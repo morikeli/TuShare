@@ -249,7 +249,9 @@ class AvailableRides extends StatelessWidget {
             padding: EdgeInsets.zero,
             height: 24.0,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () async {
+                await rideController.bookRide(rideId);
+              },
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(kPrimaryColor),
                 padding: WidgetStateProperty.all(const EdgeInsets.all(2.0)),
