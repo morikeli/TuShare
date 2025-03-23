@@ -75,20 +75,6 @@ class ProfileController extends GetxController {
     if (!NetworkUtils.checkInternet()) return;       // Stop if there's no connectivity
     
     isLoading(true);
-    void showErrorSnackbar(String title, String message) {
-      Get.showSnackbar(
-        GetSnackBar(
-          backgroundColor: Colors.transparent,
-          duration: Duration(seconds: 7),
-          messageText: AwesomeSnackbarContent(
-            title: title,
-            message: message,
-            messageTextStyle: TextStyle(fontSize: 14.0),
-            contentType: ContentType.failure,
-          ),
-        ),
-      );
-    }
 
     try {
       isLoading(true);
