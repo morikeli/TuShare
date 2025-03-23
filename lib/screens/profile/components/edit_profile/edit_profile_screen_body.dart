@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/controllers/profile_controller.dart';
 import 'package:ride_share/screens/profile/components/edit_profile/edit_profile_form.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
@@ -28,7 +27,6 @@ class EditProfileScreenBody extends StatelessWidget {
             children: [
               userProfilePicture(context),
               EditProfileForm(),
-              CustomSnackbar(snackbarMessage: profileController.errorMessage),
             ],
           ),
         ),

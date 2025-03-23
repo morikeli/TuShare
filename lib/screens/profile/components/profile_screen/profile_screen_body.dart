@@ -3,7 +3,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/controllers/profile_controller.dart';
 import 'package:ride_share/models/user_profile.dart';
 import 'package:ride_share/screens/profile/components/profile_screen/chat_and_call_container.dart';
@@ -66,7 +65,6 @@ class ProfileScreenBody extends StatelessWidget {
             SizedBox(height: 24.0),
             // Profile info.
             userProfileInfo(context, profile),
-            CustomSnackbar(snackbarMessage: profileController.errorMessage),
           ],
         ),
       );
