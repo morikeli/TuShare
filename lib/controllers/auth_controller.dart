@@ -135,7 +135,7 @@ class AuthController {
       
 
       if (token == null) {
-        return Get.offNamed('/login');
+        return Get.offAllNamed('/login');       // Remove all routes and navigate to login
       }
 
       // Make the logout request
@@ -150,7 +150,7 @@ class AuthController {
       if (response.statusCode == 200) {
         // Logout successful, clear user info
         await StorageService.clearUserInfo();
-        Get.offNamed('/login');
+        Get.offAllNamed('/login');        // Remove all routes and navigate to login
       } else {
         // Handle logout failure
         final Map<String, dynamic> responseBody = json.decode(response.body);
