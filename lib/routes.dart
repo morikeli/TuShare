@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:ride_share/common/screens/homescreen.dart';
-import 'package:ride_share/screens/login/login.dart';
+import 'package:ride_share/screens/login/login_screen.dart';
 import 'package:ride_share/screens/profile/edit_profile_screen.dart';
-import 'package:ride_share/screens/signup/signup.dart';
+import 'package:ride_share/screens/signup/signup_screen.dart';
 
 
 List<GetPage<dynamic>> routes = [
