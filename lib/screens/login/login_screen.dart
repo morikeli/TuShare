@@ -14,18 +14,21 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: loginScreenAppBar(context),
-      body: Obx(() => loginController.isLoading.value
-          // if app is waiting for API response, display a progress indicator
-          ? loadingIndicator()
-          // otherwise, display a login form
-          : ListView(
-              children: [
-                LoginForm(), // login form
-                signupLink(),
-              ],
-            )), // login form
+    // wrap the login screen with `PopScope()` to block back navigation
+    return PopScope(
+      child: Scaffold(
+        appBar: loginScreenAppBar(context),
+        body: Obx(() => loginController.isLoading.value
+            // if app is waiting for API response, display a progress indicator
+            ? loadingIndicator()
+            // otherwise, display a login form
+            : ListView(
+                children: [
+                  LoginForm(), // login form
+                  signupLink(),
+                ],
+              )), // login form
+      ),
     );
   }
 
