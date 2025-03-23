@@ -135,7 +135,8 @@ class ProfileController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('access_token');
 
-    if (token == null) return Get.offNamed('/login');   // if there is no access token, reidrect user to login screen 
+    // if there is no access token, remove all routes & redirect user to login screen 
+    if (token == null) return Get.offAllNamed('/login');
 
     final Map<String, String> profileData = {
       "username": usernameController.text,
