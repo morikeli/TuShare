@@ -9,7 +9,6 @@ class LoginController extends GetxController {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   var isLoading = false.obs;
-  var errorMessage = <String, dynamic>{}.obs;
 
   Future<void> login() async {
     isLoading(true);
