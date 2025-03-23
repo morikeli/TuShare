@@ -24,8 +24,8 @@ class MessagesService extends GetConnect {
 
     // if userID does not exist, return an error message.
     if (userID == null) {
-      final RxMap<String, dynamic> responseMessage = {"title": "Error!","message": "User credentials not found.","type": ContentType.failure}.obs;
-      return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
+      SnackbarUtils.showSnackbar(title: 'Oh snap! ', message: "Invalid credentials!", contentType: ContentType.failure);
+      return Future.error('user ID not found!');
     }
 
     final response = await get('$url/$userID/messages');
@@ -34,8 +34,8 @@ class MessagesService extends GetConnect {
       final Map<String, dynamic> responseBody = json.decode(response.body);
 
       // add error message in responseMessage and show it in a snackbar.
-      final RxMap<String, dynamic> responseMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
-      return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
+      SnackbarUtils.showSnackbar(title: 'Oh snap! ', message: "${responseBody['detail']}", contentType: ContentType.failure);
+      return Future.error(Exception(responseBody['detail']));
     } else {
       return (response.body as List).map((msg) => UserMessages.fromJson(msg)).toList();
     }
@@ -49,8 +49,9 @@ class MessagesService extends GetConnect {
     if (response.status.hasError) {
       final Map<String, dynamic> responseBody = json.decode(response.body);
       // add error message in responseMessage and show it in a snackbar.
-      final RxMap<String, dynamic> responseMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
-      return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
+      SnackbarUtils.showSnackbar(title: 'Oh snap! ', message: "${responseBody['detail']}", contentType: ContentType.failure);
+      return Future.error(Exception(responseBody['detail']));
+
     } else {
       return (response.body as List).map((messg) => ChatData.fromJson(messg)).toList();
     }
@@ -68,8 +69,8 @@ class MessagesService extends GetConnect {
     if (response.status.hasError) {
       final Map<String, dynamic> responseBody = json.decode(response.body);
       // add error message in responseMessage and show it in a snackbar.
-      final RxMap<String, dynamic> responseMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
-      return Future.error(CustomSnackbar(snackbarMessage: responseMessage));
+      SnackbarUtils.showSnackbar(title: 'Oh snap! ', message: "${responseBody['detail']}", contentType: ContentType.failure);
+      return Future.error(Exception(responseBody['detail']));
     } else {
       return !response.status.hasError;
     }
