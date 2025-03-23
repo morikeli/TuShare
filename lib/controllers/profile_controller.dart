@@ -64,6 +64,7 @@ class ProfileController extends GetxController {
         'message': 'Please select an image file.',
         'type': ContentType.warning,
       }).toString();
+      SnackbarUtils.showSnackbar(title: 'Yoh! 🥴', message: 'Please select a valid image file', contentType: ContentType.warning);
     }
   }
 
@@ -121,17 +122,18 @@ class ProfileController extends GetxController {
         userProfile.value = UserProfile.fromJson(data);   // update user profile with the JSON data from UserProfile model
         update(); // notify UI to update
       } else {
-        errorMessage({
-          "title": 'Oh snap! 😔',
-          "message": "Your session has expired. Please log in to your account.",
-          "type": ContentType.warning,
-        });  // in most cases an expired token
-        Get.offNamed('/login'); // redirect user to login screen
-        logger.warning(response.body); // log the error in terminal
+        // in most cases, the user token has expired
+        SnackbarUtils.showSnackbar(title: 'Oh no! 😢', message: "Your session has expired. Please login.", contentType: ContentType.failure);
+        Get.offAllNamed('/login');      // remove all routes and redirect user to login screen
+        logger.warning(response.body);    // log the error in terminal
       }
     } catch (e) {
       logger.shout('[EXCEPTION]: $e');
-      showErrorSnackbar("ERROR!", "Couldn't fetch your profile info.");
+      SnackbarUtils.showSnackbar(
+        title: 'Oh snap! 😔', 
+        message: "Couldn't fetch your profile. Please check your internet connection.", 
+        contentType: ContentType.warning,
+      );
     } finally {
       isLoading(false);
     }
@@ -194,29 +196,16 @@ class ProfileController extends GetxController {
       if (response.statusCode == 200) {
         await fetchuserProfile();     // if successful, refresh data in profile screen
         // update errorMessage object with success message if the user profile was updated successfully
-        errorMessage({
-          "title": 'Wohoo! 🥳🥳',
-          "message": "Your profile was updated succesfully!",
-          "type": ContentType.success,
-        });
+        SnackbarUtils.showSnackbar(title: 'Wohoo! 🥳🥳', message: 'Your profile was updated succesfully!', contentType: ContentType.success);
       } else {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         String responseMessage = responseData["detail"] ?? "An error occurred";
-        errorMessage({
-          "title": 'Oh snap! 😔',
-          "message": responseMessage,
-          "type": ContentType.warning,
-        });
-
+        SnackbarUtils.showSnackbar(title: 'Oh snap! 😔', message: responseMessage, contentType: ContentType.warning);
         throw Exception('[ERROR]: $responseMessage | Status code: ${response.statusCode}');
       }
     } on http.ClientException catch (e) {
       // if there is no internet connection display this error message
-      errorMessage({
-        "title": 'Oh snap! 😔',
-        "message": "Can't to update your profile at this moment. Please try again",
-        "type": ContentType.failure,
-      });
+      SnackbarUtils.showSnackbar(title: 'Oh snap! 😔', message: 'Please check your internet connection.', contentType: ContentType.failure);
       throw Exception('[NETWORK CONNECTIVITY ERROR]: $e');
     } catch (e) {
       throw Exception('[ERROR]: $e');

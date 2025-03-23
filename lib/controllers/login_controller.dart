@@ -28,11 +28,7 @@ class LoginController extends GetxController {
       // set isLoading to false, redirect to login screen and display the error to the user
       isLoading(false);
       Get.offNamed('/login');
-      errorMessage({
-        "title": "Oops!",
-        "message": 'Enter correct username or password.',
-        "type": ContentType.failure,
-      });
+      SnackbarUtils.showSnackbar(title: 'Oh no! 😢', message: "Please enter correct username or password", contentType: ContentType.failure);
     }
   }
 }

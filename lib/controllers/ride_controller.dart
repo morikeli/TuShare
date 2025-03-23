@@ -58,14 +58,10 @@ class RideController extends GetxController {
     isLoading(true);
     bool success = await _rideService.bookRide(rideId);
     if (success) {
-      fetchBookedRides();     // Refresh booked rides list
-      Get.snackbar("Wohoo! 🥳🥳", "Ride booked successfully!");
-      final RxMap<String, dynamic> message = {"title": "Success", "message": "Ride booked successfully!", "type": ContentType.success}.obs;
-      CustomSnackbar(snackbarMessage: message);
+      await fetchBookedRides();     // Refresh booked rides list
+      SnackbarUtils.showSnackbar(title: 'Wohoo! 🥳🥳', message: 'Ride booked successfully!', contentType: ContentType.success);
     } else {
-      Get.snackbar("Error", "Failed to book ride");
-      final RxMap<String, dynamic> message = {"title": "Oh snap!", "message": "Unable to book your ride. Please try again later.", "type": ContentType.failure}.obs;
-      CustomSnackbar(snackbarMessage: message);
+      SnackbarUtils.showSnackbar(title: 'Oh snap! 😔', message: 'Failed to book your ride. Please try again later.', contentType: ContentType.failure);
     }
     isLoading(false);
   }

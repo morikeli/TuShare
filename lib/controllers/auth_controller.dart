@@ -35,7 +35,7 @@ class AuthController {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final accessToken = data['access_token'];
-
+        SnackbarUtils.showSnackbar(title: 'Wohoo! 🥳🥳', message: "Account created successfully!", contentType: ContentType.success);
         return {'access_token': accessToken};
 
       } else {
@@ -96,10 +96,13 @@ class AuthController {
       final responseData = await response.stream.bytesToString();
       
       if (response.statusCode == 201) {
+        SnackbarUtils.showSnackbar(title: 'Wohoo! 🥳🥳', message: "Account created successfully!", contentType: ContentType.success);
         return json.decode(responseData);
+
       
       } else {
         logger.severe('[STATUS CODE]: HTTP ${response.statusCode} ${response.reasonPhrase}');   // show log for debugging
+        SnackbarUtils.showSnackbar(title: 'Oh no! 😢', message: "Couldn't create an account for you. Please try again later.", contentType: ContentType.failure);
 
         // use try ... catch block to display response data
         try {
@@ -154,12 +157,12 @@ class AuthController {
       } else {
         // Handle logout failure
         final Map<String, dynamic> responseBody = json.decode(response.body);
-        final RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "${responseBody['detail']}", "type": ContentType.failure}.obs;
-        CustomSnackbar(snackbarMessage: errorMessage);
+        SnackbarUtils.showSnackbar(title: 'Oh snap! 😔', message: "${responseBody['detail']}", contentType: ContentType.failure);
+
       }
     } catch (e) {
-      RxMap<String, dynamic> errorMessage = {"title": "Error", "message": "$e", "type": ContentType.failure}.obs;
-      CustomSnackbar(snackbarMessage: errorMessage);
+      SnackbarUtils.showSnackbar(title: 'Oh snap! 😔', message: "$e", contentType: ContentType.failure);
+
     }
   }
 }
