@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/models/user_profile.dart';
 import 'package:ride_share/services/storage_service.dart';
 import 'package:ride_share/utils/constants/api_endpoints.dart';
