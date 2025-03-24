@@ -59,7 +59,8 @@ class MessagesController extends GetxController {
     isLoading(true);
     bool success = await _messagesService.postMessage(rideId, messageContent);
     if (success) {
-      fetchGroupChats(rideId);    // fetch newly sent message
+      await fetchGroupChats(rideId);    // retrieve recently sent message
+      fetchUserMessages();             // refresh messages on message screen
       update();   // update UI
     } else {
       Get.snackbar("Error", "Couldn't send your message.");
