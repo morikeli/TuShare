@@ -33,13 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
         onTabClicked: (index) => moveToSelectedScreen(index),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          LineIcons.shareSquareAlt,
-          color: kIconLightColor,
-        ),
-      ),
     );
   }
 }
