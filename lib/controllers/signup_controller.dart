@@ -5,6 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logging/logging.dart';
+import 'package:ride_share/common/widgets/custom_snackbar.dart';
 import 'package:ride_share/controllers/auth_controller.dart';
 
 
@@ -59,33 +60,16 @@ class SignupController extends GetxController {
     if (firstName.isEmpty || lastName.isEmpty || username.isEmpty || email.isEmpty || mobileNumber.isEmpty || selectedGender.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       
       isLoading(false);
-      errorMessage({
-        'title': 'Yoh! 🤨',
-        'message': 'All fields are required.',
-        'type': ContentType.warning,
-      }).toString();
-
-      return;
-      
+      return SnackbarUtils.showSnackbar(title: 'Yoh! 🤨', message: 'All fields are required.', contentType: ContentType.warning);
+    } else if (!mobileNumber.startsWith(RegExp(r'^(?:\+)'))) {
+      isLoading(false);
+      return SnackbarUtils.showSnackbar(title: 'Oops! 😵‍💫', message: 'Mobile numbers should start with your country code', contentType: ContentType.warning);
     } else if (password.length < 8) {
       isLoading(false);
-      errorMessage({
-        'title': 'Wiih! 😵‍💫',
-        'message': "That's a very weak password.",
-        'type': ContentType.warning,
-      }).toString();
-
-      return;
-
+      return SnackbarUtils.showSnackbar(title: 'Wiih! 😵‍💫', message: "That's a very weak password.", contentType: ContentType.warning);
     } else if (password != confirmPassword) {
       isLoading(false);
-      errorMessage({
-        'title': 'Oh snap! 😵',
-        'message': "Passwords don't match",
-        'type': ContentType.warning,
-      }).toString();
-
-      return;
+      return SnackbarUtils.showSnackbar(title: 'Oh snap! 😵', message: "Passwords don't match", contentType: ContentType.warning);
     }
 
     // if form validation is valid, create a user account
@@ -93,20 +77,12 @@ class SignupController extends GetxController {
 
     logger.info('[SIGNUP DATA]: $signupData');
     if (signupData != null) {
-      errorMessage({
-        'title': 'Wohoo! 🥳🥳',
-        'message': 'Account created successfully!',
-        'type': ContentType.success,
-      }).toString();
+      SnackbarUtils.showSnackbar(title: 'Wohoo! 🥳🥳', message: 'Account created successfully!', contentType: ContentType.success);
       isLoading(false);
       Get.offNamed('/login');
 
     } else {
-      errorMessage({
-        'title': 'Oh snap!',
-        'message': 'Something went wrong. Please try again',
-        'type': ContentType.failure,
-      }).toString();
+      SnackbarUtils.showSnackbar(title: 'Oh snap! 😵', message: 'Something went wrong. Please try again.', contentType: ContentType.failure);
       isLoading(false);
       
     }
