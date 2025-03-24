@@ -60,11 +60,6 @@ class ProfileController extends GetxController {
       selectedImage.value = File(pickedFile.path);
       update(); // Refresh UI after picking the image
     } else {
-      errorMessage({
-        'title': 'Oops!',
-        'message': 'Please select an image file.',
-        'type': ContentType.warning,
-      }).toString();
       SnackbarUtils.showSnackbar(title: 'Yoh! 🥴', message: 'Please select a valid image file', contentType: ContentType.warning);
     }
   }
