@@ -3,6 +3,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/common/widgets/appbar.dart';
 import 'package:ride_share/screens/home/components/available_rides.dart';
 import 'package:ride_share/screens/home/components/scheduled_rides_card.dart';
+import 'package:ride_share/utils/constants/colors.dart';
 
 
 class Home extends StatefulWidget {
@@ -32,6 +33,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: sharedAppBar(context, 'TuShare', LineIcons.alternateCar),
       body: homeBody(context),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          LineIcons.shareSquareAlt,
+          color: kIconLightColor,
+        ),
+      ),
     );
   }
 
