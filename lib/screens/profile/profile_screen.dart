@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
         child: ProfileScreenBody(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Get.toNamed('/edit-profile'),  // Navigate to Edit Profile screen,
         child: Icon(
           LineIcons.userEdit,
           color: kIconLightColor,
