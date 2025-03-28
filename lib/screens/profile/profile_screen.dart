@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ride_share/screens/profile/components/profile_screen/profile_screen_body.dart';
 import 'package:ride_share/utils/constants/colors.dart';
