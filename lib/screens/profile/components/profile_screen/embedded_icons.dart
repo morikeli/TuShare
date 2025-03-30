@@ -26,7 +26,7 @@ class EmbeddedIcons extends StatelessWidget {
                 } else {
                   Get.changeThemeMode(ThemeMode.dark);
                 }
-              } else if (value == 'logout') {
+              } else {
                 authController.logout();
               }
             },
