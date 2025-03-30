@@ -20,9 +20,7 @@ class EmbeddedIcons extends StatelessWidget {
         children: [
           PopupMenuButton(
             onSelected: (value) {
-              if (value == 'edit_profile') {
-                Get.toNamed('/edit-profile');   // Navigate to Edit Profile screen
-              } else if (value == 'change_theme') {
+              if (value == 'change_theme') {
                 if (Get.isDarkMode) {
                   Get.changeThemeMode(ThemeMode.light);
                 } else {
@@ -33,13 +31,6 @@ class EmbeddedIcons extends StatelessWidget {
               }
             },
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(
-                value: 'edit_profile',
-                child: ListTile(
-                  leading: const Icon(LineIcons.userEdit),
-                  title: const Text('Edit Profile'),
-                ),
-              ),
               PopupMenuItem(
                 value: 'change_theme',
                 child: ListTile(
