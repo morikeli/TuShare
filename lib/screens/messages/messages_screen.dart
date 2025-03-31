@@ -14,6 +14,7 @@ class MessagesScreen extends StatelessWidget {
       appBar: sharedAppBar(context, 'Messages', LineIcons.comments),
       body: MessagesScreenBody(),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'New chat',
         onPressed: () {},
         child: Icon(
           LineIcons.comment,

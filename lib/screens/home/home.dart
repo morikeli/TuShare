@@ -34,6 +34,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       appBar: sharedAppBar(context, 'TuShare', LineIcons.alternateCar),
       body: homeBody(context),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Share your ride',
         onPressed: () {},
         child: Icon(
           LineIcons.shareSquareAlt,
