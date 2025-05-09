@@ -67,20 +67,23 @@ This is a **carpooling (ride-sharing) mobile application** designed to provide a
 
 Clone this repository by opening your terminal/CMD and change the current working directory to Desktop - use `cd Desktop` command.
 ```bash
-    $ cd Desktop
-    $ git clone https://github.com/morikeli/TuShare.git
+    cd Desktop
+    git clone https://github.com/morikeli/TuShare.git
 ```
-
-2. Open the cloned repository on your text editor and run this command:
+2. Create a `.env` file and add the following environment variable.
+```env
+    API_URL=https://tushare-ride-sharing-app.onrender.com
+```
+3. Open the cloned repository on your text editor and run this command:
 ```bash
-    $ flutter run
+    flutter run
 ```
-3. Make sure you have a very strong internet connection so that the necessary gradle files can be downloaded. These files are necessary to build the project `apk` file.
+4. Make sure you have a very strong internet connection so that the necessary gradle files can be downloaded. These files are necessary to build the project `apk` file.
 
 ---
 **Keep in mind**:
 * When building the application for the first time, it may take 10 - 15 minutes to finish the installation and build process.
-* When running the application using the `flutter run` command, it may take atleast a minute to install the build files on a physical device.
+* When running the application using the `flutter run` command, it may take atleast a minute, or more dependencies on your hardware specifications such as CPU speed, or RAM, to install the build files on a physical device.
 ---
 
 
