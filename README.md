@@ -4,7 +4,7 @@
 | Light mode | Dark mode |
 | ------------------------- | ------------------------- |
 | | |
-| Homescreen (My rides tab) | Homescreen (discover tab) |
+| Homescreen (light) | Homescreen (dark) |
 | ![homescreen-light](https://github.com/user-attachments/assets/5cea39e7-bdc1-45e8-a44b-b691314afb78) | ![homescreen-dark](https://github.com/user-attachments/assets/d5560fce-0087-41c8-85c9-adcb8e3f4455)|
 | | |
 | | |
@@ -20,7 +20,7 @@
 | ![car-slots-route-screenshot](https://github.com/user-attachments/assets/6ef671ae-6fca-4292-8b2b-d63f6890df02) | ![fullscreen-map](https://github.com/user-attachments/assets/9815dd87-e8bf-4805-b6f5-9641901e233e) |
 | | |
 | | |
-| Messages screen | Messages screen |
+| Messages screen (light) | Messages screen (dark) |
 | ![messages-screen-light](https://github.com/user-attachments/assets/6431a69f-7376-4d91-becc-18aa3fd5c055) | ![messages-screen-dark](https://github.com/user-attachments/assets/c3a77632-9d33-4f1f-9465-eb4c2d048e29) | 
 | ![chat-screen-light](https://github.com/user-attachments/assets/0c0b6fc8-53e9-4020-b934-c2eaf494cd2b) | ![chat-screen-dark](https://github.com/user-attachments/assets/8e13aceb-8de6-4347-b066-0575bfb85344) |
 
